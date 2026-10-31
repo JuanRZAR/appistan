@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Configuración de GitHub Pages bajo `/appistan/`, workflow con Bun y descarga directa de la última Release estable.
+- Comprobación de que el alias público del APK coincide con la entrega firmada y creación automática de ese alias en futuras entregas.
 - Migración del sitio de descarga a Astro, Bun y Tailwind CSS 4, con componentes y recursos locales.
 - Preparación de la entrega local estable más reciente por versión numérica, verificando tamaño y SHA-256 antes de servir el APK.
 - Descarga directa sin JavaScript ni navegación a páginas de versiones; iconos oficiales, captura real y diseño adaptable.

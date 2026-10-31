@@ -44,3 +44,24 @@ test('rejects filenames outside the release folder', () => {
   expect(() => prepareRelease(release.directory, publicRoot)).toThrow('inválidos');
   expect(existsSync(publicRoot)).toBe(false);
 });
+
+test('prepares a direct GitHub download without publishing APK copies in Pages', () => {
+  const root = area(), publicRoot = join(root, 'public'), release = fixture(root, '0.4.0');
+  prepareRelease(release.directory, publicRoot);
+  writeFileSync(join(release.directory, 'AppIstan-latest.apk'), release.apk);
+  const url = 'https://github.com/JuanRZAR/appistan/releases/latest/download/AppIstan-latest.apk';
+  expect(prepareRelease(release.directory, publicRoot, url).downloadUrl).toBe(url);
+  expect(existsSync(join(publicRoot, 'downloads'))).toBe(false);
+  expect(JSON.parse(readFileSync(join(publicRoot, 'release.json'), 'utf8')).downloadUrl).toBe(url);
+});
+test('rejects a GitHub versions page instead of a direct download', () => {
+  const root = area(), release = fixture(root, '0.4.0');
+  expect(() => prepareRelease(release.directory, join(root, 'public'), 'https://github.com/JuanRZAR/appistan/releases/latest')).toThrow('directamente');
+});
+test('rejects a different latest APK and preserves the previous working download', () => {
+  const root = area(), publicRoot = join(root, 'public'), release = fixture(root, '0.4.0');
+  prepareRelease(release.directory, publicRoot);
+  writeFileSync(join(release.directory, 'AppIstan-latest.apk'), 'wrong apk');
+  expect(() => prepareRelease(release.directory, publicRoot, 'https://github.com/JuanRZAR/appistan/releases/latest/download/AppIstan-latest.apk')).toThrow('no coincide');
+  expect(readFileSync(join(publicRoot, 'downloads/AppIstan-latest.apk'))).toEqual(release.apk);
+});

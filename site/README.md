@@ -31,9 +31,9 @@ Desde la raíz también se puede compilar con `./scripts/Build-Site.ps1`. Si Pow
 - `src/pages/index.astro`: página principal.
 - `src/layouts/BaseLayout.astro`: documento, cabecera, metadatos y pie.
 - `src/components/`: portada, descarga, captura y preguntas frecuentes.
-- `src/assets/`: captura y los seis iconos oficiales utilizados en la portada, tomados de los recursos Android.
+- `src/assets/`: captura, fuente Nunito y los seis iconos oficiales utilizados en la portada, tomados de los recursos Android.
 - `src/styles/global.css`: Tailwind, Nunito y colores del sitio.
-- `public/`: favicon, fuente y cabeceras para el alojamiento estático.
+- `public/`: favicon, licencia de Nunito y cabeceras para el alojamiento estático.
 - `scripts/prepare-release.ts`: preparación y verificación de la descarga local.
 - `dist/`: resultado estático generado, excluido de Git.
 
@@ -51,8 +51,23 @@ Para preparar una entrega específica mediante el script raíz:
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./scripts/Build-Site.ps1 -ReleaseDirectory ./releases/0.4.0
 ```
 
-## Parte 3 pendiente
+## GitHub Pages — parte 3
 
-La publicación en GitHub y Cloudflare Pages se hará posteriormente. Subiremos el código y `bun.lock`; las claves, dependencias, APK y carpetas generadas permanecen excluidos de Git.
+Repositorio: `https://github.com/JuanRZAR/appistan`. La dirección prevista del sitio es `https://juanrzar.github.io/appistan/`.
 
-Si alojamos los APK en GitHub Releases, se usará la descarga directa del archivo de la última versión. El botón nunca deberá abrir la página de GitHub con las versiones. La obtención de esos archivos durante el despliegue todavía no forma parte del sitio local.
+`.github/workflows/pages.yml` instala Node.js y Bun, obtiene la última Release estable con GitHub CLI, verifica los APK, ejecuta las pruebas y compila Astro. Publica únicamente `site/dist/` en Pages. Las claves, APK y dependencias permanecen excluidos de Git; el APK público se aloja como archivo adjunto de una Release.
+
+Para la primera publicación:
+
+1. Desde la raíz del proyecto, ejecutar `git push origin --tags` para publicar las etiquetas existentes.
+2. Abrir `https://github.com/JuanRZAR/appistan/releases/new` y elegir la etiqueta existente `v0.4.0`.
+3. Usar el título `AppIstan 0.4.0` y adjuntar los tres archivos de `releases/0.4.0/`: `AppIstan-0.4.0.apk`, `AppIstan-latest.apk` y `release.json`. Esperar a que terminen de cargarse.
+4. Publicar como Release estable, marcada como la última; no seleccionar pre-release.
+5. En Settings → Pages → Build and deployment → Source, seleccionar **GitHub Actions**.
+6. Subir el commit con esta configuración mediante `git push origin main`. Revisar el workflow **Publish AppIstan to GitHub Pages** en Actions.
+
+En este modo, `APPISTAN_PAGES=true` configura las rutas bajo `/appistan/`. `APPISTAN_RELEASE_DIR` identifica la carpeta descargada por GitHub CLI y `APPISTAN_DOWNLOAD_URL` establece el enlace directo a `https://github.com/JuanRZAR/appistan/releases/latest/download/AppIstan-latest.apk`. Se comprueba que ese archivo sea idéntico al APK versionado antes de generar los metadatos públicos. Los APK no se copian al sitio de Pages.
+
+El botón inicia la descarga del archivo; no abre la página de versiones. No necesita JavaScript ni una consulta a la API desde el navegador. La página obtiene la versión y tamaño durante la compilación y vuelve a publicarse al crear una Release estable, actualizar el sitio en `main` o ejecutar el workflow manualmente.
+
+Para las entregas siguientes, `scripts/Release.ps1` genera también `AppIstan-latest.apk`. Subir los tres archivos de la nueva entrega a su Release, incluyendo siempre ese alias con el mismo nombre. El desarrollo local conserva sus rutas y descargas propias, sin necesitar GitHub.

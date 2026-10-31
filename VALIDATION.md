@@ -53,3 +53,5 @@ La parte 2 migra el sitio a Astro 7, Bun y Tailwind CSS 4. Compila sin errores, 
 La revisión en Chrome utiliza anchos de 320, 390, 768 y 1440 píxeles: sin desbordamiento horizontal ni imágenes rotas, con un único botón de descarga, foco visible y preguntas frecuentes operativas. El HTML compilado no contiene scripts y conserva la versión y el enlace al APK.
 
 Se pulsó el botón en el navegador y se descargó `AppIstan-0.4.0.apk`: 1.524.649 bytes y SHA-256 `ed15c8aafec50a8c174b9b4dca2e705f03b58b592e8c64735ff32805e0dbbc7a`. La página permaneció en su URL local. También se verificó la respuesta del servidor de desarrollo. GitHub y Cloudflare Pages quedan para la parte 3.
+
+La preparación de GitHub Pages añade tres pruebas, para un total de 7: enlace directo a un archivo de Release, ausencia de copias del APK en el sitio y rechazo de un alias distinto o una URL de página de versiones. La compilación con `APPISTAN_PAGES=true` se comprueba bajo `/appistan/`, con fuente, imágenes y favicon locales. El workflow YAML se valida localmente; su ejecución remota y la descarga desde GitHub quedan pendientes de publicar la Release y activar Pages.

@@ -72,7 +72,7 @@ Los permisos son Internet, estado de red, instalación desde esta fuente y notif
 
 La primera clave se crea una sola vez con `./scripts/New-ReleaseKey.ps1`. Se conserva en `keystore/`, excluida de Git. La contraseña local está protegida por Windows DPAPI; la entrega también admite `APPISTAN_KEYSTORE_PASSWORD` en el entorno. Respaldar la clave y la contraseña con un método independiente antes de distribuir la app: perderlas impide actualizar las instalaciones públicas con la misma identidad.
 
-Cada entrega incluye un APK firmado, SHA-256, `release.json` con versión, tamaño y commit, y una etiqueta Git `vX.Y.Z`. El script exige un árbol de trabajo limpio y no reutiliza una etiqueta existente. Las salidas quedan en `releases/X.Y.Z/` y no se agregan a Git.
+Cada entrega incluye un APK firmado, su alias `AppIstan-latest.apk`, SHA-256, `release.json` con versión, tamaño y commit, y una etiqueta Git `vX.Y.Z`. El script exige un árbol de trabajo limpio y no reutiliza una etiqueta existente. Las salidas quedan en `releases/X.Y.Z/` y no se agregan a Git.
 
 ## Límites actuales
 
@@ -81,4 +81,4 @@ Cada entrega incluye un APK firmado, SHA-256, `release.json` con versión, tama�
 - Las distribuciones que requieren archivos OBB se muestran como no disponibles; los juegos pueden descargar contenido propio al abrirse.
 - La elección de variantes depende de los metadatos de Aptoide; un conjunto incompleto o incompatible se rechaza.
 - En BlueStacks se verifican el catálogo, la actualización con confirmación de Android, el rechazo de un APK alterado y la omisión de una versión anterior, conservando un marcador único de datos. Esto no demuestra que todas las apps bancarias, juegos o servicios funcionen en un teléfono real.
-- El sitio de descarga usa Astro, Bun y Tailwind en `site/`. Para iniciarlo en Windows: `cd site`, `bun.cmd install --frozen-lockfile` y `bun.cmd run dev`. El botón descarga directamente el APK de la última entrega local, con SHA-256 verificado. Cada entrega genera `site/dist/`; se requiere instalar primero las dependencias web. GitHub y Cloudflare Pages corresponden a la parte 3; consulta `site/README.md`.
+- El sitio de descarga usa Astro, Bun y Tailwind en `site/`. Para iniciarlo en Windows: `cd site`, `bun.cmd install --frozen-lockfile` y `bun.cmd run dev`. Localmente descarga el APK de la última entrega, con SHA-256 verificado. GitHub Pages utiliza `.github/workflows/pages.yml` y el APK de la última Release estable; consulta los pasos de publicación en `site/README.md`.

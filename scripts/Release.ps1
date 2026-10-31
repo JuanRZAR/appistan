@@ -22,6 +22,7 @@ try {
     $fileName = "AppIstan-$version.apk"
     $artifact = Join-Path $directory $fileName
     Copy-Item -LiteralPath 'app/build/outputs/apk/release/app-release.apk' -Destination $artifact
+    Copy-Item -LiteralPath $artifact -Destination (Join-Path $directory 'AppIstan-latest.apk')
     $metadata = [ordered]@{ version=$version; versionCode=[int]$properties.versionCode; artifact=$fileName; sha256=(Get-FileHash -Algorithm SHA256 -LiteralPath $artifact).Hash.ToLowerInvariant(); sizeBytes=(Get-Item -LiteralPath $artifact).Length; gitCommit=$commit; createdUtc=[DateTime]::UtcNow.ToString('o') }
     [IO.File]::WriteAllText((Join-Path $directory 'release.json'), ($metadata | ConvertTo-Json), [Text.UTF8Encoding]::new($false))
     [IO.File]::WriteAllText((Join-Path $directory "$fileName.sha256"), ($metadata.sha256 + '  ' + $fileName + "`n"), [Text.UTF8Encoding]::new($false))

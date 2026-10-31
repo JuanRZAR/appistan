@@ -6,14 +6,14 @@ import tiktok from '../assets/apps/tiktok.webp';
 import messenger from '../assets/apps/messenger.webp';
 import spotify from '../assets/apps/spotify.webp';
 import netflix from '../assets/apps/netflix.webp';
-interface Props { release: { version: string; artifact: string; sizeBytes: number } }
+interface Props { release: { version: string; artifact: string; sizeBytes: number; downloadUrl?: string } }
 const { release } = Astro.props;
 const apps = [{ name: 'WhatsApp', icon: whatsapp }, { name: 'Facebook', icon: facebook },
   { name: 'TikTok', icon: tiktok }, { name: 'Messenger', icon: messenger },
   { name: 'Spotify', icon: spotify }, { name: 'Netflix', icon: netflix }];
 ---
 <section class="hero text-center" aria-labelledby="title">
-  <img class="hero-icon" src="/favicon.svg" alt="" width="104" height="104" fetchpriority="high" />
+  <img class="hero-icon" src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" width="104" height="104" fetchpriority="high" />
   <h1 id="title" class="mx-auto max-w-4xl text-[clamp(2.65rem,6.2vw,5.2rem)] leading-[1.06] font-black tracking-[-.045em]">Tus apps de siempre.<br />En una selección.</h1>
   <p class="mx-auto mt-6 mb-8 max-w-[35rem] text-base leading-relaxed text-muted sm:text-xl">Prepara tu nuevo Android sin ir de una descarga a otra. Elige tus aplicaciones y deja que AppIstan organice el resto.</p>
   <DownloadButton {...release} />
