@@ -1,0 +1,12 @@
+---
+interface Props { version: string; artifact: string; sizeBytes: number }
+const { version, artifact, sizeBytes } = Astro.props;
+const size = new Intl.NumberFormat('es-EC', { maximumFractionDigits: 1, minimumFractionDigits: 1 }).format(sizeBytes / 1_000_000);
+---
+<a class="download" id="download" href="/downloads/AppIstan-latest.apk" download={artifact} aria-label={`Descargar APK de AppIstan ${version}`}>
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5" /></svg>
+  Descargar APK
+</a>
+<p class="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs font-bold text-muted sm:text-sm">
+  <span id="version">v{version}</span><span aria-hidden="true">·</span><span>{size} MB</span><span aria-hidden="true">·</span><span>Android 8 o superior</span>
+</p>

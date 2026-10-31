@@ -1,22 +1,19 @@
 ﻿param([string]$ReleaseDirectory)
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path -Parent $PSScriptRoot
-if (-not $ReleaseDirectory) {
-    $properties = ConvertFrom-StringData (Get-Content -Raw -LiteralPath (Join-Path $taskRoot 'version.properties'))
-    $ReleaseDirectory = Join-Path $taskRoot ('releases/' + $properties.versionName)
+$taskBun = Get-Command bun.exe,bun.cmd -ErrorAction SilentlyContinue | Select-Object -First 1
+if (-not $taskBun) { throw 'Instala Bun y ejecuta bun install dentro de site/.' }
+$taskPreviousRelease = $env:APPISTAN_RELEASE_DIR
+$taskReleasePath = if ($ReleaseDirectory) { (Resolve-Path -LiteralPath $ReleaseDirectory).Path } else { $null }
+Push-Location (Join-Path $taskRoot 'site')
+try {
+    if ($taskReleasePath) { $env:APPISTAN_RELEASE_DIR = $taskReleasePath }
+    else { Remove-Item Env:APPISTAN_RELEASE_DIR -ErrorAction SilentlyContinue }
+    & $taskBun.Source run build
+    if ($LASTEXITCODE -ne 0) { throw 'No se pudo compilar el sitio Astro.' }
+    Write-Output ('Sitio estático preparado: ' + (Join-Path $taskRoot 'site/dist'))
+} finally {
+    if ($null -eq $taskPreviousRelease) { Remove-Item Env:APPISTAN_RELEASE_DIR -ErrorAction SilentlyContinue }
+    else { $env:APPISTAN_RELEASE_DIR = $taskPreviousRelease }
+    Pop-Location
 }
-$metadataPath = Join-Path $ReleaseDirectory 'release.json'
-$metadata = Get-Content -Raw -LiteralPath $metadataPath | ConvertFrom-Json
-if ($metadata.artifact -notmatch '^AppIstan-\d+\.\d+\.\d+\.apk$') { throw 'Nombre de APK inválido.' }
-$apk = Join-Path $ReleaseDirectory $metadata.artifact
-if ((Get-FileHash -Algorithm SHA256 -LiteralPath $apk).Hash.ToLowerInvariant() -ne $metadata.sha256) { throw 'El APK no coincide con los metadatos de la entrega.' }
-if ((Get-Item -LiteralPath $apk).Length -gt 25MB) { throw 'El APK supera 25 MiB, el límite por archivo de Pages. Configura un alojamiento de APK externo antes de publicar.' }
-$source = Join-Path $taskRoot 'site'
-$dist = Join-Path $source 'dist'
-New-Item -ItemType Directory -Force -Path (Join-Path $dist 'downloads') | Out-Null
-foreach ($file in @('index.html','styles.css','app.js','_headers')) { Copy-Item -LiteralPath (Join-Path $source $file) -Destination (Join-Path $dist $file) -Force }
-Copy-Item -LiteralPath (Join-Path $source 'assets') -Destination $dist -Recurse -Force
-Copy-Item -LiteralPath $metadataPath -Destination (Join-Path $dist 'release.json') -Force
-Copy-Item -LiteralPath $apk -Destination (Join-Path $dist ('downloads/' + $metadata.artifact)) -Force
-Copy-Item -LiteralPath $apk -Destination (Join-Path $dist 'downloads/AppIstan-latest.apk') -Force
-Write-Output "Sitio estático preparado: $dist"

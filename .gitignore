@@ -8,5 +8,10 @@ keystore/
 *.keystore
 releases/
 site/dist/
+site/node_modules/
+site/.astro/
+site/.sites-runtime/
+site/public/downloads/
+site/public/release.json
 .idea/
 *.iml

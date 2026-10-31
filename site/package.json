@@ -1,0 +1,24 @@
+{
+  "name": "appistan-site",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.2",
+  "scripts": {
+    "prepare:release": "bun run scripts/prepare-release.ts",
+    "dev": "bun run prepare:release && astro dev --host 127.0.0.1",
+    "build": "bun run prepare:release && astro check && astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "check": "bun run prepare:release && astro check",
+    "test": "bun test scripts"
+  },
+  "dependencies": {
+    "astro": "7.4.4"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.4",
+    "@astrojs/check": "0.9.12",
+    "@tailwindcss/vite": "4.3.3",
+    "tailwindcss": "4.3.3",
+    "typescript": "6.0.3"
+  }
+}

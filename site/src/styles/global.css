@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: Nunito;
+  src: url('/fonts/nunito.ttf') format('truetype');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: Nunito, system-ui, sans-serif;
+  --color-paper: #f2f6ed;
+  --color-ink: #163626;
+  --color-green: #194e3b;
+  --color-lime: #d4f590;
+  --color-muted: #586b5e;
+  --color-line: #d5dfd1;
+  --color-soft: #e5eddc;
+}
+
+@layer base {
+  html { color-scheme: light; scroll-behavior: smooth; scroll-padding-top: 2rem; }
+  body { @apply bg-paper font-sans text-ink antialiased; line-height: 1.55; }
+  a, summary { -webkit-tap-highlight-color: transparent; }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--color-green); outline-offset: 6px; }
+  ::selection { background: var(--color-lime); color: var(--color-ink); }
+}
+
+@layer components {
+  .shell { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+  .brand { @apply inline-flex items-center gap-2.5 text-[23px] font-black tracking-tight no-underline; }
+  .section-title { @apply text-[clamp(1.8rem,3.5vw,2.6rem)] leading-[1.16] font-black tracking-[-.03em]; }
+  .hero { padding: 3.5rem 1rem 2.8rem; }
+  .hero-icon { display: block; margin: 0 auto 2.3rem; border-radius: 27px; transform: rotate(-7deg); box-shadow: 8px 8px 0 var(--color-soft); }
+  .download { @apply inline-flex min-h-15 items-center justify-center gap-3 rounded-full bg-green px-10 py-4 text-xl font-extrabold text-white no-underline; box-shadow: 0 5px 0 #103a2c; transition: transform .16s, box-shadow .16s; }
+  .download:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #103a2c; }
+  .download:active { transform: translateY(3px); box-shadow: 0 2px 0 #103a2c; }
+  .faq summary { list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; font-size: 1.6rem; line-height: 1; font-weight: 600; color: var(--color-green); }
+  .faq[open] summary::after { content: '−'; }
+  .skip-link { position: fixed; top: 1rem; left: 1rem; z-index: 50; padding: .7rem 1rem; background: var(--color-green); color: white; border-radius: .5rem; transform: translateY(-200%); }
+  .skip-link:focus { transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .shell { width: calc(100% - 36px); }
+  .hero { padding: 2rem 0 2rem; }
+  .hero-icon { width: 88px; height: 88px; margin-bottom: 2rem; border-radius: 23px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .download { transition: none; }
+}

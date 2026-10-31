@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+- Migración del sitio de descarga a Astro, Bun y Tailwind CSS 4, con componentes y recursos locales.
+- Preparación de la entrega local estable más reciente por versión numérica, verificando tamaño y SHA-256 antes de servir el APK.
+- Descarga directa sin JavaScript ni navegación a páginas de versiones; iconos oficiales, captura real y diseño adaptable.
+- Pruebas de selección de versión, descarga estable y rechazo de archivos o rutas inválidos. La publicación remota queda para la parte 3.
+
 ## [0.4.0] - 2026-10-31
 
 - Borrado explícito de APK descargados y copias privadas al instalar, fallar o cancelar, sin depender únicamente de DownloadManager.

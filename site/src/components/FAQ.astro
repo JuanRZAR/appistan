@@ -1,0 +1,16 @@
+---
+const questions = [
+  { title: '¿Cómo instalo AppIstan?', text: 'Pulsa Descargar APK y abre el archivo en tu Android. Si el sistema lo solicita, permite instalar desde el navegador o gestor de archivos que estás usando. Al comenzar tu primer lote, AppIstan te guiará para autorizar sus instalaciones.' },
+  { title: '¿Necesito una cuenta de Google?', text: 'Para usar AppIstan, no. Las aplicaciones que instales pueden pedir sus propias cuentas para funcionar.' },
+  { title: '¿Tengo que confirmar cada instalación?', text: 'Sí. Primero se descarga y verifica todo el lote; después Android presenta las confirmaciones una tras otra. Puedes seguir el progreso desde AppIstan.' },
+  { title: '¿Qué aplicaciones aparecen?', text: 'Se muestran las aplicaciones del catálogo con una fuente de descarga comprobada, una firma corroborada y compatibilidad con tu versión de Android y procesador. La disponibilidad de las fuentes puede cambiar.' },
+  { title: '¿Se quedan los APK ocupando espacio?', text: 'AppIstan borra sus APK temporales al instalar, fallar o cancelar. Antes de reintentar, elimina los archivos anteriores. Necesitas espacio para descargar el lote completo antes de instalar.' },
+];
+---
+<section class="mx-auto mb-18 max-w-[760px] sm:mb-24" aria-labelledby="questions-title">
+  <h2 id="questions-title" class="section-title mb-7">Antes de empezar</h2>
+  {questions.map(question => <details class="faq border-t border-line py-5 last:border-b">
+    <summary class="flex cursor-pointer items-center justify-between gap-5 text-base font-extrabold sm:text-lg">{question.title}</summary>
+    <p class="mt-4 max-w-[68ch] pr-5 text-sm leading-relaxed text-muted sm:text-base">{question.text}</p>
+  </details>)}
+</section>

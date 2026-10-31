@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import AppPreview from '../components/AppPreview.astro';
+import FAQ from '../components/FAQ.astro';
+import release from '../../public/release.json';
+const steps = [
+  { name: 'Elige', text: 'Busca tus aplicaciones o entra en Comunes para encontrar Facebook, WhatsApp, TikTok y Messenger.' },
+  { name: 'Descarga', text: 'AppIstan revisa Play Services y descarga y verifica todo el lote antes de comenzar a instalar.' },
+  { name: 'Confirma', text: 'Cuando terminen las descargas, aprueba las instalaciones de Android una tras otra.' },
+];
+---
+<BaseLayout>
+  <Hero {release} />
+  <AppPreview />
+  <section class="px-1 sm:px-8" aria-labelledby="steps-title">
+    <div class="mb-9 flex flex-col gap-5 md:flex-row md:items-end md:justify-between md:gap-12">
+      <h2 id="steps-title" class="section-title">Del celular vacío<br />a tus apps favoritas.</h2>
+      <p class="max-w-80 text-base text-muted sm:text-lg">Menos búsquedas, menos descargas por separado. Tú decides qué instalar.</p>
+    </div>
+    <ol class="grid gap-8 md:grid-cols-3 md:gap-12">
+      {steps.map((step, index) => <li class="grid grid-cols-[42px_1fr] gap-x-5 md:block">
+        <span class="row-span-2 mb-0 grid size-[42px] place-items-center rounded-full bg-lime text-xl font-black text-green md:mb-5" aria-hidden="true">{index + 1}</span>
+        <h3 class="mb-2 text-2xl font-black tracking-tight">{step.name}</h3>
+        <p class="text-base leading-relaxed text-muted">{step.text}</p>
+      </li>)}
+    </ol>
+  </section>
+  <section class="my-14 flex items-start gap-5 rounded-3xl bg-green px-6 py-8 text-white sm:my-20 sm:items-center sm:gap-8 sm:px-12 sm:py-11" aria-labelledby="updates-title">
+    <svg class="mt-1 size-9 shrink-0 text-lime sm:size-13" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M38 18A16 16 0 1 0 40 29M38 7v12H26" /><path d="m17 24 5 5 10-11" /></svg>
+    <div><h2 id="updates-title" class="mb-3 text-2xl leading-tight font-black tracking-tight sm:text-3xl">¿Ya la tienes? La actualizamos.</h2>
+      <p class="max-w-[70ch] text-sm leading-relaxed text-[#d7e7d9] sm:text-lg">Si hay una versión compatible más reciente y su firma permite actualizar, AppIstan conserva la instalación existente y sus datos.</p></div>
+  </section>
+  <FAQ />
+</BaseLayout>
