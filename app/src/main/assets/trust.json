@@ -1,0 +1,360 @@
+{
+    "com.google.android.youtube":  {
+                                       "sha256":  [
+                                                      "3D7A1223019AA39D9EA0E3436AB7C0896BFB4FB679F4DE5FE7C23F326C8F994A",
+                                                      "5AAD2BEE6DB95D17E05A08D7D1E64C10A1511879154483916B6AE6C7FD9CB0C6",
+                                                      "7FD2CEA30C3A6022EB29419CE8F6F92CE8A4BD35B0CC879ED3CCA6CBF5E9992D"
+                                                  ],
+                                       "sources":  [
+                                                       "https://www.youtube.com/.well-known/assetlinks.json"
+                                                   ],
+                                       "checkedUtc":  "2026-10-31T04:12:54.4508607Z"
+                                   },
+    "com.roblox.client":  {
+                              "sha256":  [
+                                             "14E882B1F73754660305B1E55030F76FE6B2353F46C4E593D569933E95BCF7C3",
+                                             "294F2C821D5BCA5BCB0AA560048E2ECF78A42DF2858D06A365EA5B7445B00940",
+                                             "2BEBD189E8D3106401347056C93D045B61E20E22D0C3CBED85474AEB00A3D12A",
+                                             "44932EA35A17A267372D71B54D1A0CB3DA0DCA5113E94406AE2FE18090BA1477",
+                                             "7B0482FB612BD9C87084D6FA48F1C7BAA7F1A22F471220CBA7F6428DFB75462E"
+                                         ],
+                              "sources":  [
+                                              "https://www.roblox.com/.well-known/assetlinks.json"
+                                          ],
+                              "checkedUtc":  "2026-10-31T04:12:50.5459332Z"
+                          },
+    "com.google.android.calendar":  {
+                                        "sha256":  [
+                                                       "1975B2F17177BC89A5DFF31F9E64A6CAE281A53DC1D1D59B1D147FE1C82AFA00",
+                                                       "F0FD6C5B410F25CB25C3B53346C8972FAE30F8EE7411DF910480AD6B2D60DB83"
+                                                   ],
+                                        "sources":  [
+                                                        "https://calendar.google.com/.well-known/assetlinks.json",
+                                                        "https://www.google.com/.well-known/assetlinks.json"
+                                                    ],
+                                        "checkedUtc":  "2026-10-31T04:12:39.8524221Z"
+                                    },
+    "com.zhiliaoapp.musically":  {
+                                     "sha256":  [
+                                                    "671A78EE553898075075B45FC746F2E2951C983DE86F5082F7006DD93FE6E317",
+                                                    "9041803E91BCB814B4B4399FB5C85A91640B755E5E8BA76813814BF4CF2AB5BA",
+                                                    "D7811EC4166FEA6CC720BA66699DC84B584AC9E6986613A76D4E43D8CBE32B27"
+                                                ],
+                                     "sources":  [
+                                                     "https://www.tiktok.com/.well-known/assetlinks.json"
+                                                 ],
+                                     "checkedUtc":  "2026-10-31T04:12:52.2903334Z"
+                                 },
+    "com.google.android.apps.nbu.files":  {
+                                              "sha256":  [
+                                                             "1975B2F17177BC89A5DFF31F9E64A6CAE281A53DC1D1D59B1D147FE1C82AFA00",
+                                                             "207AF9A133A630C4246A06C79C09946A70840F4702EE5BAA53F3791B537B0F14",
+                                                             "E669BDF8B027BD06761024671D2B03CAE75056E808122E029C8BE24F17706D74"
+                                                         ],
+                                              "sources":  [
+                                                              "https://files.google.com/.well-known/assetlinks.json"
+                                                          ],
+                                              "checkedUtc":  "2026-10-31T04:12:29.6159810Z"
+                                          },
+    "com.instagram.android":  {
+                                  "sha256":  [
+                                                 "3A10C50C18BA937506C2875E9047BE74F8FD8B86FAE2FF9FEAA50A81FCB4C014",
+                                                 "5F3E50F435583C9AE626302A71F7340044087A7E2C60ADACFC254205A993E305"
+                                             ],
+                                  "sources":  [
+                                                  "https://www.facebook.com/.well-known/assetlinks.json",
+                                                  "https://www.instagram.com/.well-known/assetlinks.json"
+                                              ],
+                                  "checkedUtc":  "2026-10-31T04:12:40.7072269Z"
+                              },
+    "com.discord":  {
+                        "sha256":  [
+                                       "3C39D23CF9367849A5C699395647FE0E5BFEA5A1F1F40D8C717DDC70F8BFA113",
+                                       "9903CAADD39CB40B6A3ECB33C42CB885651DC4A8EAAE27CC66569DE86BDDFC62"
+                                   ],
+                        "sources":  [
+                                        "https://discord.com/.well-known/assetlinks.json"
+                                    ],
+                        "checkedUtc":  "2026-10-31T04:12:28.1337061Z"
+                    },
+    "us.zoom.videomeetings":  {
+                                  "sha256":  [
+                                                 "49F53A77D99B6B00FCF474224E3B27E4D7BBDB5A5F3E14E2B47DF2D9E39A3D5A",
+                                                 "4A836241017E4EAC50C38326EE2300C50EFA7933C5AADB02EAEDAEE98F6B2410",
+                                                 "5863BDB98D6FAC0A843B94C008AE4A1CD77058F61D8417C4679BB2D8A3E63551",
+                                                 "60B75724B34686E52BDE944969DE120F16BD6D959788D54384494CAEDD4E445D",
+                                                 "A0E8BC96D21368AFDA2854820D7F9499120EBCD3A650BE0361800216D30CDD74",
+                                                 "AA48F0EA5E28919EDA204E165F9EDE7E56A33570F1807433C56F5F46FECC0008"
+                                             ],
+                                  "sources":  [
+                                                  "https://zoom.us/.well-known/assetlinks.json"
+                                              ],
+                                  "checkedUtc":  "2026-10-31T04:12:54.7941251Z"
+                              },
+    "com.microsoft.office.outlook":  {
+                                         "sha256":  [
+                                                        "B925136F3EA7C0A1951690A1AB313910DA81F40994A85342EC622888F1287051"
+                                                    ],
+                                         "sources":  [
+                                                         "https://outlook.live.com/.well-known/assetlinks.json"
+                                                     ],
+                                         "checkedUtc":  "2026-10-31T04:12:34.3206795Z"
+                                     },
+    "com.adobe.reader":  {
+                             "sha256":  [
+                                            "B6DD0562256487FCD6C98CDE137858EF50D9ADB9F9CD2F1CA58C5357EFDF0FAF"
+                                        ],
+                             "sources":  [
+                                             "https://acrobat.adobe.com/.well-known/assetlinks.json"
+                                         ],
+                             "checkedUtc":  "2026-10-31T04:12:27.2966848Z"
+                         },
+    "com.lemon.lvoverseas":  {
+                                 "sha256":  [
+                                                "466FCF19480B925D36F36F3B54B78CB6FFAC73BC2482C1514F0BA7CFE952AF5B",
+                                                "6F33FD446F6E83A767D4FFF9C19CECF76059814EA6A7EA71DF1D0DEF2D75DB31",
+                                                "AD9606D01728EE39C659A57552E82D928B460C8A9027A03578CD3787DF01640B"
+                                            ],
+                                 "sources":  [
+                                                 "https://www.capcut.com/.well-known/assetlinks.json"
+                                             ],
+                                 "checkedUtc":  "2026-10-31T04:12:38.5736012Z"
+                             },
+    "com.netflix.mediaclient":  {
+                                    "sha256":  [
+                                                   "280BF00D987A64F235EA34F9F4D3BB2F95D48FB304E5EE8A2B1D1E5F3D19CFD0",
+                                                   "363863596EA99241EB71B1A985553AA604DE3EA3C5F0C546742390E682164E6B"
+                                               ],
+                                    "sources":  [
+                                                    "https://www.netflix.com/.well-known/assetlinks.json"
+                                                ],
+                                    "checkedUtc":  "2026-10-31T04:12:46.4850465Z"
+                                },
+    "com.canva.editor":  {
+                             "sha256":  [
+                                            "F364EBF2D108CE72FEC20A4DB7A5B0BCEF4D002220075D07450285B7C7E6FB4D"
+                                        ],
+                             "sources":  [
+                                             "https://www.canva.com/.well-known/assetlinks.json"
+                                         ],
+                             "checkedUtc":  "2026-10-31T04:12:37.8889491Z"
+                         },
+    "org.telegram.messenger":  {
+                                   "sha256":  [
+                                                  "49C1522548EBACD46CE322B6FD47F6092BB745D0F88082145CAF35E14DCC38E1"
+                                              ],
+                                   "sources":  [
+                                                   "https://t.me/.well-known/assetlinks.json"
+                                               ],
+                                   "checkedUtc":  "2026-10-31T04:12:36.3358497Z"
+                               },
+    "sinet.startup.inDriver":  {
+                                   "sha256":  [
+                                                  "D9FDC497CB4D2000697EF26454CD28C00EE355C5BA476D80E2276AC7BA22639D",
+                                                  "E5F228A286FC8C46B9CA655CACA7A15370B4AF41439D10FC88C460861AD46F6D"
+                                              ],
+                                   "sources":  [
+                                                   "https://indrive.com/.well-known/assetlinks.json"
+                                               ],
+                                   "checkedUtc":  "2026-10-31T04:12:31.0306452Z"
+                               },
+    "com.whatsapp":  {
+                         "sha256":  [
+                                        "3987D043D10AEFAF5A8710B3671418FE57E0E19B653C9DF82558FEB5FFCE5D44",
+                                        "FB920D381BEE1B2093F27DC8F13D994DA629DC91887D0529B35C9A2DC4F4A6C2"
+                                    ],
+                         "sources":  [
+                                         "https://www.whatsapp.com/.well-known/assetlinks.json"
+                                     ],
+                         "checkedUtc":  "2026-10-31T04:12:54.1702257Z"
+                     },
+    "com.facebook.orca":  {
+                              "sha256":  [
+                                             "129DC53480E2BF1B55CF6EEC205FE0F59D2B9F81E7EE4FB67CECBBEE25A0B080",
+                                             "911D604446084CA7F4760B775BFC160FA8702441240A7258645D7A72C4312D27",
+                                             "E3F9E1E0CF99D0E56A055BA65E241B3399F7CEA524326B0CDD6EC1327ED0FDC1"
+                                         ],
+                              "sources":  [
+                                              "https://www.facebook.com/.well-known/assetlinks.json",
+                                              "https://www.messenger.com/.well-known/assetlinks.json"
+                                          ],
+                              "checkedUtc":  "2026-10-31T04:12:41.5230685Z"
+                          },
+    "com.mercadolibre":  {
+                             "sha256":  [
+                                            "0E42F762152331B557532CE6BAC7C45118521D46C6A0D5FCF476DDBBBBBB9F22",
+                                            "92873CD67AD2F38743D23943E140E7A4A45A9BC8BA4606AD1E8DA730BF3057E9"
+                                        ],
+                             "sources":  [
+                                             "https://www.mercadolibre.com.ec/.well-known/assetlinks.json"
+                                         ],
+                             "checkedUtc":  "2026-10-31T04:12:41.1987656Z"
+                         },
+    "com.ubercab":  {
+                        "sha256":  [
+                                       "4003231AB42FEB8D955E62FDFAA4FAD59567054B9C6BBC3D950299DDFC268392"
+                                   ],
+                        "sources":  [
+                                        "https://m.uber.com/.well-known/assetlinks.json"
+                                    ],
+                        "checkedUtc":  "2026-10-31T04:12:31.6521797Z"
+                    },
+    "com.facebook.lite":  {
+                              "sha256":  [
+                                             "911D604446084CA7F4760B775BFC160FA8702441240A7258645D7A72C4312D27",
+                                             "E3F9E1E0CF99D0E56A055BA65E241B3399F7CEA524326B0CDD6EC1327ED0FDC1"
+                                         ],
+                              "sources":  [
+                                              "https://www.facebook.com/.well-known/assetlinks.json"
+                                          ],
+                              "checkedUtc":  "2026-10-31T04:12:39.6148648Z"
+                          },
+    "com.google.android.apps.maps":  {
+                                         "sha256":  [
+                                                        "1975B2F17177BC89A5DFF31F9E64A6CAE281A53DC1D1D59B1D147FE1C82AFA00",
+                                                        "3D7A1223019AA39D9EA0E3436AB7C0896BFB4FB679F4DE5FE7C23F326C8F994A",
+                                                        "F0FD6C5B410F25CB25C3B53346C8972FAE30F8EE7411DF910480AD6B2D60DB83"
+                                                    ],
+                                         "sources":  [
+                                                         "https://g.co/.well-known/assetlinks.json",
+                                                         "https://www.google.com/.well-known/assetlinks.json"
+                                                     ],
+                                         "checkedUtc":  "2026-10-31T04:12:39.8533984Z"
+                                     },
+    "com.waze":  {
+                     "sha256":  [
+                                    "03637F6C5D8F604E6FDB79A6FFBFA578DE4E318F8DA22FC6106665247F8807D7",
+                                    "7FD2CEA30C3A6022EB29419CE8F6F92CE8A4BD35B0CC879ED3CCA6CBF5E9992D"
+                                ],
+                     "sources":  [
+                                     "https://www.waze.com/.well-known/assetlinks.json"
+                                 ],
+                     "checkedUtc":  "2026-10-31T04:12:53.9303159Z"
+                 },
+    "com.bancodeguayaquil":  {
+                                 "sha256":  [
+                                                "BBEAB7713B6462A7716BEB0F3EE5FB56651A205C12784EA10C7484D3919F3750"
+                                            ],
+                                 "sources":  [
+                                                 "https://www.bancoguayaquil.com/.well-known/assetlinks.json"
+                                             ],
+                                 "checkedUtc":  "2026-10-31T04:12:37.6509643Z"
+                             },
+    "com.google.android.gms":  {
+                                   "sha256":  [
+                                                  "1975B2F17177BC89A5DFF31F9E64A6CAE281A53DC1D1D59B1D147FE1C82AFA00",
+                                                  "5F2391277B1DBD489000467E4C2FA6AF802430080457DCE2F618992E9DFB5402",
+                                                  "7CE83C1B71F3D572FED04C8D40C5CB10FF75E6D87D9DF6FBD53F0468C2905053",
+                                                  "8FD4A0E7B8EB7C726D2DAC79445B2C7931F62B7EB692F5044BDCFDFAAD070A36",
+                                                  "D22CC500299FB22873A01A010DE1C82FBE4D061119B94814DD301DAB50CB7678",
+                                                  "F0FD6C5B410F25CB25C3B53346C8972FAE30F8EE7411DF910480AD6B2D60DB83"
+                                              ],
+                                   "sources":  [
+                                                   "https://g.co/.well-known/assetlinks.json",
+                                                   "https://www.google.com/.well-known/assetlinks.json"
+                                               ],
+                                   "checkedUtc":  "2026-10-31T04:12:39.8533984Z"
+                               },
+    "com.google.android.apps.translate":  {
+                                              "sha256":  [
+                                                             "103938EE4537E59E8EE792F654504FB8346FC6B346D0BBC4415FC339FCFC8EC1",
+                                                             "3D7A1223019AA39D9EA0E3436AB7C0896BFB4FB679F4DE5FE7C23F326C8F994A"
+                                                         ],
+                                              "sources":  [
+                                                              "https://translate.google.com/.well-known/assetlinks.json"
+                                                          ],
+                                              "checkedUtc":  "2026-10-31T04:12:37.0797690Z"
+                                          },
+    "com.facebook.katana":  {
+                                "sha256":  [
+                                               "129DC53480E2BF1B55CF6EEC205FE0F59D2B9F81E7EE4FB67CECBBEE25A0B080",
+                                               "911D604446084CA7F4760B775BFC160FA8702441240A7258645D7A72C4312D27",
+                                               "E3F9E1E0CF99D0E56A055BA65E241B3399F7CEA524326B0CDD6EC1327ED0FDC1"
+                                           ],
+                                "sources":  [
+                                                "https://www.facebook.com/.well-known/assetlinks.json"
+                                            ],
+                                "checkedUtc":  "2026-10-31T04:12:39.6168486Z"
+                            },
+    "com.spotify.music":  {
+                              "sha256":  [
+                                             "6505B181933344F93893D586E399B94616183F04349CB572A9E81A3335E28FFD"
+                                         ],
+                              "sources":  [
+                                              "https://www.spotify.com/.well-known/assetlinks.json"
+                                          ],
+                              "checkedUtc":  "2026-10-31T04:12:51.7689422Z"
+                          },
+    "com.google.android.gm":  {
+                                  "sha256":  [
+                                                 "1975B2F17177BC89A5DFF31F9E64A6CAE281A53DC1D1D59B1D147FE1C82AFA00",
+                                                 "F0FD6C5B410F25CB25C3B53346C8972FAE30F8EE7411DF910480AD6B2D60DB83"
+                                             ],
+                                  "sources":  [
+                                                  "https://mail.google.com/.well-known/assetlinks.json",
+                                                  "https://meet.google.com/.well-known/assetlinks.json",
+                                                  "https://www.google.com/.well-known/assetlinks.json"
+                                              ],
+                                  "checkedUtc":  "2026-10-31T04:12:39.8543747Z"
+                              },
+    "com.openai.chatgpt":  {
+                               "sha256":  [
+                                              "B24F4BFBB3CF293F938703B9D87027C1102CC36DC4FA206910E08927DB40473C"
+                                          ],
+                               "sources":  [
+                                               "https://chatgpt.com/.well-known/assetlinks.json"
+                                           ],
+                               "checkedUtc":  "2026-10-31T04:12:27.9506036Z"
+                           },
+    "com.google.android.apps.tachyon":  {
+                                            "sha256":  [
+                                                           "152EBBBCB8B95718B9F83CDBC8CABCCBACE8EE5E9590B3EBE1A48F72109C5632",
+                                                           "7CAAB6E6BA700E0DDCF75CCA52B8C3B19A3C7D23308F7EB177A64EB2476197BD"
+                                                       ],
+                                            "sources":  [
+                                                            "https://meet.google.com/.well-known/assetlinks.json"
+                                                        ],
+                                            "checkedUtc":  "2026-10-31T04:12:32.4237538Z"
+                                        },
+    "com.whatsapp.w4b":  {
+                             "sha256":  [
+                                            "3987D043D10AEFAF5A8710B3671418FE57E0E19B653C9DF82558FEB5FFCE5D44",
+                                            "FB920D381BEE1B2093F27DC8F13D994DA629DC91887D0529B35C9A2DC4F4A6C2"
+                                        ],
+                             "sources":  [
+                                             "https://www.facebook.com/.well-known/assetlinks.json",
+                                             "https://www.whatsapp.com/.well-known/assetlinks.json"
+                                         ],
+                             "checkedUtc":  "2026-10-31T04:12:54.1712044Z"
+                         },
+    "com.pedidosya":  {
+                          "sha256":  [
+                                         "4DA01A474BEA439BF2671BFF745F1E80FADFF023642C9FCFBA57525672C0490B",
+                                         "C9446AE7F26193AD6CA7E714EC64896A3C8BE256000A0EC953DCC3D9A20D7E4C"
+                                     ],
+                          "sources":  [
+                                          "https://www.pedidosya.com.ec/.well-known/assetlinks.json"
+                                      ],
+                          "checkedUtc":  "2026-10-31T04:12:48.6469473Z"
+                      },
+    "com.google.android.apps.docs":  {
+                                         "sha256":  [
+                                                        "1975B2F17177BC89A5DFF31F9E64A6CAE281A53DC1D1D59B1D147FE1C82AFA00",
+                                                        "F0FD6C5B410F25CB25C3B53346C8972FAE30F8EE7411DF910480AD6B2D60DB83"
+                                                    ],
+                                         "sources":  [
+                                                         "https://drive.google.com/.well-known/assetlinks.json"
+                                                     ],
+                                         "checkedUtc":  "2026-10-31T04:12:28.4946398Z"
+                                     },
+    "com.google.android.apps.photos":  {
+                                           "sha256":  [
+                                                          "3D7A1223019AA39D9EA0E3436AB7C0896BFB4FB679F4DE5FE7C23F326C8F994A",
+                                                          "7FD2CEA30C3A6022EB29419CE8F6F92CE8A4BD35B0CC879ED3CCA6CBF5E9992D"
+                                                      ],
+                                           "sources":  [
+                                                           "https://photos.google.com/.well-known/assetlinks.json"
+                                                       ],
+                                           "checkedUtc":  "2026-10-31T04:12:35.3089527Z"
+                                       }
+}

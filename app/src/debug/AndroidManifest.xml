@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <queries><package android:name="com.appistan.fixture"/></queries>
+    <application>
+        <provider android:name="com.appistan.installer.DeviceTestProvider" android:authorities="${applicationId}.test" android:exported="true" android:permission="android.permission.DUMP"/>
+    </application>
+</manifest>
