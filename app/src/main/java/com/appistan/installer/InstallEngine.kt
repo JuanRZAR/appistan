@@ -11,7 +11,6 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.io.File
-import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap
 
 class InstallEngine(private val context: AppIstan, val dao: QueueDao, private val catalog: Catalog) {
@@ -23,6 +22,7 @@ class InstallEngine(private val context: AppIstan, val dao: QueueDao, private va
     private val preferences = context.getSharedPreferences("installer", Context.MODE_PRIVATE)
     private val prompts = ConcurrentHashMap<Int, Intent>()
     private val privateRoot = File(context.filesDir, "packages").apply { mkdirs() }
+    private val packageFiles = PackageFiles(privateRoot, context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS))
 
     suspend fun start(ids: Set<String>) = lock.withLock {
         require(dao.items().none { !it.phase.terminal }) { "Termina o cancela el lote actual" }
@@ -41,6 +41,7 @@ class InstallEngine(private val context: AppIstan, val dao: QueueDao, private va
                 return@forEach
             }
             when (row.phase) {
+                Phase.SUCCESS, Phase.SKIPPED, Phase.FAILED, Phase.CANCELLED -> cleanCompleted(row.id)
                 Phase.RESOLVING -> dao.put(row.copy(phase = Phase.QUEUED, message = "Reanudando consulta"))
                 Phase.VERIFYING -> dao.put(row.copy(phase = Phase.DOWNLOADING, message = "Revisando archivos"))
                 Phase.INSTALLING, Phase.AWAITING_USER -> {
@@ -52,6 +53,7 @@ class InstallEngine(private val context: AppIstan, val dao: QueueDao, private va
                 else -> Unit
             }
         }
+        pruneFiles()
     }
 
     suspend fun tick() = lock.withLock {
@@ -111,10 +113,11 @@ class InstallEngine(private val context: AppIstan, val dao: QueueDao, private va
             if (active >= 2) break
             val row = rows.first { it.id == file.appId }
             try {
+                val destination = packageFiles.prepareDownload(row.id, file.id)
                 val request = DownloadManager.Request(Uri.parse(file.url)).setTitle("${row.name} · ${file.name}")
                     .setDescription("AppIstan · Instalación por lotes").setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
                     .setAllowedOverMetered(true).setAllowedOverRoaming(false)
-                    .setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, "appistan-${UUID.randomUUID()}/base.apk")
+                    .setDestinationUri(Uri.fromFile(destination))
                 dao.updateArtifact(file.copy(downloadId = downloads.enqueue(request)))
                 active++
             } catch (error: Exception) { fail(row, error); return }
@@ -193,11 +196,11 @@ class InstallEngine(private val context: AppIstan, val dao: QueueDao, private va
         }
     }
 
-    suspend fun installStatus(sessionId: Int, status: Int, prompt: Intent?, detail: String?) {
-        val row = dao.items().firstOrNull { it.sessionId == sessionId } ?: return
+    suspend fun installStatus(sessionId: Int, status: Int, prompt: Intent?, detail: String?) = lock.withLock {
+        val row = dao.items().firstOrNull { it.sessionId == sessionId && !it.phase.terminal } ?: return@withLock
         when (status) {
             PackageInstaller.STATUS_PENDING_USER_ACTION -> {
-                if (prompt == null) { fail(row, IllegalStateException("Android no devolvió la confirmación")); return }
+                if (prompt == null) { fail(row, IllegalStateException("Android no devolvió la confirmación")); return@withLock }
                 prompts[sessionId] = prompt
                 dao.put(row.copy(phase = Phase.AWAITING_USER, message = "Confirma la instalación en Android"))
                 notifyPending(row)
@@ -209,7 +212,7 @@ class InstallEngine(private val context: AppIstan, val dao: QueueDao, private va
                     rememberPlayServicesRejection()
                     complete(row, Phase.SKIPPED, PlayServicesPolicy.managedMessage)
                     prompts.remove(sessionId)
-                    return
+                    return@withLock
                 }
                 val message = when (status) {
                     PackageInstaller.STATUS_FAILURE_ABORTED -> "Instalación cancelada en Android"
@@ -247,12 +250,32 @@ class InstallEngine(private val context: AppIstan, val dao: QueueDao, private va
         cleanup(row.id)
         dao.put(QueueItem(row.id, row.name, row.position))
     }
-    private suspend fun complete(row: QueueItem, phase: Phase, message: String) { cleanup(row.id); cancelNotification(row); dao.put(row.copy(phase = phase, message = message)) }
+    private suspend fun complete(row: QueueItem, phase: Phase, message: String) {
+        cancelNotification(row)
+        dao.put(row.copy(phase = phase, message = message))
+        cleanCompleted(row.id)
+        pruneFiles()
+    }
     private suspend fun fail(row: QueueItem, error: Exception) { complete(row, Phase.FAILED, error.message ?: "No se pudo completar esta aplicación") }
+    private suspend fun cleanCompleted(id: String) {
+        try { cleanup(id) } catch (error: Exception) { android.util.Log.w("AppIstan", "Limpieza pendiente: $id", error) }
+    }
+    private suspend fun pruneFiles() {
+        try { packageFiles.prune(dao.items().filter { !it.phase.terminal }.map { it.id }.toSet()) }
+        catch (error: Exception) { android.util.Log.w("AppIstan", "Limpieza de archivos huérfanos pendiente", error) }
+    }
     private suspend fun cleanup(id: String) {
-        dao.artifacts(id).forEach { artifact -> if (artifact.downloadId >= 0) runCatching { downloads.remove(artifact.downloadId) } }
-        require(id.matches(Regex("[a-zA-Z0-9_.]+")))
-        File(privateRoot, id).deleteRecursively()
+        dao.artifacts(id).forEach { artifact ->
+            if (artifact.downloadId >= 0) {
+                val legacy = downloads.query(DownloadManager.Query().setFilterById(artifact.downloadId)).use { cursor ->
+                    if (cursor.moveToFirst()) cursor.getString(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_LOCAL_URI))?.let(Uri::parse)
+                    else null
+                }
+                downloads.remove(artifact.downloadId)
+                if (legacy?.scheme == "file") legacy.path?.let { packageFiles.deleteLegacy(File(it)) }
+            }
+        }
+        packageFiles.deleteApp(id)
         dao.deleteArtifacts(id)
     }
     private fun notifyPending(row: QueueItem) {

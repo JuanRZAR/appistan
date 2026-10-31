@@ -1,5 +1,14 @@
 # Validación de AppIstan
 
+## Versión 0.4.0
+
+- 32 pruebas unitarias: las 26 anteriores, 5 de limpieza de archivos y una de cobertura, procedencia e integridad de los 28 iconos.
+- BlueStacks: un APK huérfano controlado en una carpeta del formato anterior se eliminó al iniciar la versión nueva.
+- Prueba real con Facebook Lite: la primera descarga dejó `34.apk`; al cancelar en Android no quedaron APK. Reintentar creó únicamente `35.apk`, sin conservar el anterior. Tras aceptar y completar la instalación tampoco quedaron APK descargados.
+- La aplicación de prueba se desinstaló al terminar y se comprobó que la lista de aplicaciones del emulador coincidía con la anterior a la prueba.
+- Las pruebas de archivos comprueban el borrado de APK base, splits y copias privadas, la conservación de otras descargas activas y archivos ajenos, y el rechazo de rutas fuera de las carpetas propias.
+- Los iconos se descargaron de sus fichas de Google Play y se incluyen localmente en WebP. La interfaz se revisó en BlueStacks; falta validación en un teléfono físico.
+
 ## Versión 0.3.0
 
 - 26 pruebas unitarias: las 15 anteriores, 6 de preparación del lote y orden de instalación, y 5 del tratamiento de Play Services.

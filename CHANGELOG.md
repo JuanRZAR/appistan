@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-10-31
+
+- Borrado explícito de APK descargados y copias privadas al instalar, fallar o cancelar, sin depender únicamente de DownloadManager.
+- Limpieza obligatoria antes de reintentar una descarga y recuperación de archivos temporales huérfanos de versiones anteriores.
+- Serialización de los resultados del instalador con cancelaciones y reintentos para evitar que una respuesta antigua modifique una descarga nueva.
+- Iconos oficiales de las 27 aplicaciones y Play Services, incluidos en el APK y visibles en el catálogo y la cola.
+- Pruebas de limpieza, protección de archivos ajenos y procedencia e integridad de los iconos.
+
 ## [0.3.0] - 2026-10-31
 
 - Descarga y verificación del lote completo antes de solicitar la primera instalación.

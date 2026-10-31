@@ -34,6 +34,8 @@ El catálogo depurado contiene 27 aplicaciones con firma corroborada y una desca
 
 El filtro **Comunes** muestra Facebook, WhatsApp, TikTok y Messenger, en ese orden. Es adicional a las categorías: esas aplicaciones permanecen también en Social y Todas. La búsqueda se combina con el filtro seleccionado. El contador refleja el catálogo visible en cada dispositivo.
 
+El catálogo y la cola muestran los iconos publicados en las fichas oficiales de Google Play, incluidos en el APK para mostrarlos sin conexión. `app/src/main/assets/icons.json` registra la ficha de origen, la imagen y su SHA-256 para las 27 aplicaciones y Play Services. Se pueden actualizar con `node scripts/Update-Icons.cjs` usando Node.js 22.13 o superior.
+
 La comprobación de fuentes de esta versión está registrada en `docs/catalog-availability-0.2.0.json`. Incluye respuestas de metadatos y cabeceras de descarga del APK base y sus splits; no equivale a una instalación de las 27 aplicaciones.
 
 `app/src/main/assets/trust.json` contiene huellas SHA-256 corroboradas mediante los archivos Digital Asset Links de los dominios oficiales. Sus fuentes y fechas quedan registradas. Para actualizarlo:
@@ -53,6 +55,8 @@ Cada lote comienza revisando Google Play Services. Después descarga y verifica 
 En entornos con traducción entre x86 y ARM, como BlueStacks, se conserva Play Services del sistema para evitar la actualización que la plataforma rechaza. En otros dispositivos se intenta actualizarlo si hay una versión compatible y verificable. Un rechazo permanente se recuerda para la versión instalada y la compilación del sistema; se puede volver a comprobar cuando alguna cambia. Si Play Services está ausente, el lote continúa sin instalar el ecosistema Google.
 
 DownloadManager mantiene hasta dos transferencias solicitadas por AppIstan. Room persiste la cola y los identificadores de descarga. Los archivos se copian al almacenamiento interno antes de verificarlos y se conservan hasta instalar o cancelar cada aplicación; se necesita espacio para preparar el lote completo. Hay una sola sesión de instalación activa; las confirmaciones se abren cuando AppIstan está en primer plano. Al cerrar el proceso se recupera el estado desde Room y Android. Si se perdió una confirmación pendiente, Reintentar crea una nueva sesión.
+
+Al terminar, fallar o cancelar una instalación se retira su descarga y se borran directamente los APK base, splits y copias privadas de AppIstan. Reintentar exige limpiar los archivos anteriores antes de volver a descargar. Al abrir la app se vuelve a comprobar la limpieza de las filas terminadas y se eliminan carpetas temporales huérfanas; las carpetas aleatorias de versiones anteriores se limpian cuando no hay un lote activo. Esta limpieza se limita al almacenamiento temporal propio de AppIstan.
 
 Los permisos son Internet, estado de red, instalación desde esta fuente y notificaciones. No necesita root ni iniciar sesión en Google. Android puede exigir confirmaciones o bloquear una instalación por sus propias restricciones. Las apps descargadas pueden necesitar sus propias cuentas o servicios para funcionar.
 

@@ -6,6 +6,7 @@ import org.junit.Assert.*
 import org.junit.Test
 import java.io.File
 import java.util.Base64
+import java.security.MessageDigest
 
 class CatalogFilterTest {
     private val assets = File(requireNotNull(System.getProperty("appAssets")))
@@ -32,6 +33,20 @@ class CatalogFilterTest {
         assertTrue(apps.isNotEmpty())
         assertEquals(apps.size, apps.map { it.id }.distinct().size)
         apps.forEach { assertTrue("Missing signer: ${it.id}", trust.optJSONObject(it.id)?.optJSONArray("sha256")?.length()?.let { size -> size > 0 } == true) }
+    }
+
+    @Test fun everyAppHasABundledIconFromItsGooglePlayListing() {
+        val icons = JSONArray(File(assets, "icons.json").readText()).objects()
+        assertEquals((apps.map { it.id } + "com.google.android.gms").toSet(), icons.map { it.getString("id") }.toSet())
+        val drawable = File(assets.parentFile, "res/drawable")
+        icons.forEach { icon ->
+            assertEquals("https://play.google.com/store/apps/details?id=${icon.getString("id")}&hl=es&gl=US", icon.getString("page"))
+            val bytes = File(drawable, icon.getString("resource") + ".webp").readBytes()
+            assertEquals("RIFF", String(bytes, 0, 4, Charsets.US_ASCII))
+            assertEquals("WEBP", String(bytes, 8, 4, Charsets.US_ASCII))
+            val digest = MessageDigest.getInstance("SHA-256").digest(bytes).joinToString("") { "%02x".format(it) }
+            assertEquals(icon.getString("sha256"), digest)
+        }
     }
 
     @Test fun incompatibleAndroidAndCpuAreHidden() {

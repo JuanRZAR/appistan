@@ -13,6 +13,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.foundation.background
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -32,6 +33,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.font.FontWeight
@@ -64,8 +67,12 @@ class InstallerViewModel(application: Application) : AndroidViewModel(applicatio
     fun start(ids: Set<String>) = viewModelScope.launch(Dispatchers.IO) {
         try { app.engine.start(ids); selected.value = emptySet() } catch (failure: Exception) { error.value = failure.message }
     }
-    fun cancel(id: String) = viewModelScope.launch(Dispatchers.IO) { app.engine.cancel(id) }
-    fun retry(id: String) = viewModelScope.launch(Dispatchers.IO) { app.engine.retry(id) }
+    fun cancel(id: String) = viewModelScope.launch(Dispatchers.IO) {
+        try { app.engine.cancel(id) } catch (failure: Exception) { error.value = failure.message }
+    }
+    fun retry(id: String) = viewModelScope.launch(Dispatchers.IO) {
+        try { app.engine.retry(id) } catch (failure: Exception) { error.value = failure.message }
+    }
 }
 
 class MainActivity : ComponentActivity() {
@@ -198,7 +205,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable private fun CatalogRow(app: CatalogApp, state: LocalAppState?, selected: Boolean, enabled: Boolean, onClick: () -> Unit) {
     Row(Modifier.fillMaxWidth().clickable(enabled = enabled, onClick = onClick).padding(horizontal = 20.dp, vertical = 11.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(14.dp)) {
-        BrandTile(app.name, app.category)
+        AppIcon(app.id, app.name)
         Column(Modifier.weight(1f)) {
             Text(app.name, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Medium, maxLines = 1, overflow = TextOverflow.Ellipsis)
             Text(when { state == null -> "Comprobando dispositivo…"; !state.verified -> "No disponible · firma pendiente"; state.installed != null -> "Instalada · ${state.installed}"; else -> app.category }, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 1, overflow = TextOverflow.Ellipsis)
@@ -207,15 +214,19 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable private fun BrandTile(name: String, category: String) {
-    val tint = when (category) { "Social" -> Color(0xFF22664F); "Google" -> Color(0xFF395F9D); "Multimedia" -> Color(0xFF8B4770); "Juegos" -> Color(0xFF876229); "Ecuador" -> Color(0xFF776426); else -> Color(0xFF5D58A0) }
-    Box(Modifier.size(46.dp).background(tint.copy(alpha = 0.12f), RoundedCornerShape(14.dp)), contentAlignment = Alignment.Center) { Text(name.take(1).uppercase(), color = tint, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold) }
+@Composable private fun AppIcon(id: String, name: String) {
+    val resource = AppIcons.resource(id)
+    if (resource != null) Image(painterResource(resource), contentDescription = null, modifier = Modifier.size(46.dp).clip(RoundedCornerShape(12.dp)))
+    else Box(Modifier.size(46.dp).background(MaterialTheme.colorScheme.secondaryContainer, RoundedCornerShape(12.dp)), contentAlignment = Alignment.Center) {
+        Text(name.take(1).uppercase(), style = MaterialTheme.typography.titleLarge)
+    }
 }
 
 @Composable private fun QueueCard(row: QueueItem, onCancel: () -> Unit, onRetry: () -> Unit) {
     OutlinedCard(Modifier.fillMaxWidth(), shape = RoundedCornerShape(18.dp)) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                AppIcon(row.id, row.name)
                 Icon(when (row.phase) { Phase.SUCCESS -> Icons.Outlined.CheckCircle; Phase.FAILED -> Icons.Outlined.ErrorOutline; Phase.SKIPPED -> Icons.Outlined.Info; Phase.AWAITING_USER -> Icons.Outlined.TouchApp; else -> Icons.Outlined.Downloading }, null,
                     tint = if (row.phase == Phase.FAILED) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary)
                 Text(row.name, Modifier.weight(1f), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)

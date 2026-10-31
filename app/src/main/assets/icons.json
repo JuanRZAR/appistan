@@ -1,0 +1,226 @@
+[
+  {
+    "id": "com.whatsapp",
+    "name": "WhatsApp",
+    "page": "https://play.google.com/store/apps/details?id=com.whatsapp&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/Gqxk4T0uZsDwFp07DE-508hkyvcNmgFuRwPiwTEfF7D7OzGv1FdHDzEyMxNsSBZLOJlGpe3ULvVM2RgrRAlBqA=w128-h128-rw",
+    "resource": "app_com_whatsapp",
+    "sha256": "ebe8d94a3b5133edb3091a81fb1dcd07ec5e4f61d26a999df5616c0c1ce6aea8"
+  },
+  {
+    "id": "com.facebook.katana",
+    "name": "Facebook",
+    "page": "https://play.google.com/store/apps/details?id=com.facebook.katana&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q=w128-h128-rw",
+    "resource": "app_com_facebook_katana",
+    "sha256": "365d97bc8a4343e3e3cbbe0c5ae5933983c2587b24f51c26cd7af8d73be92439"
+  },
+  {
+    "id": "com.zhiliaoapp.musically",
+    "name": "TikTok",
+    "page": "https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg=w128-h128-rw",
+    "resource": "app_com_zhiliaoapp_musically",
+    "sha256": "529b603ca622cc78eb41f0655220f5112500b3a9b7f236f7fe559787bdcf9358"
+  },
+  {
+    "id": "com.facebook.orca",
+    "name": "Messenger",
+    "page": "https://play.google.com/store/apps/details?id=com.facebook.orca&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/cuRpiGqvAMkcbAOibD-AKCBagAunUkspQUWC_jVZF2Hob_ODdmkefnZeqkofW1idFQHhgZgnLIjsqT-2v7JKBw=w128-h128-rw",
+    "resource": "app_com_facebook_orca",
+    "sha256": "381c3ea84125d68f2962938ee8ba7fd355eb426c9576c19fb5da3207fb6532fd"
+  },
+  {
+    "id": "com.roblox.client",
+    "name": "Roblox",
+    "page": "https://play.google.com/store/apps/details?id=com.roblox.client&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/QqZj22aXblAyYDxLQw-Gg0ycW0QkKhrDnwqgERZU9BMRXZnMlgXfq-94sikG5mEpt_I0lzZxcUzfLblmQgwYzUE=w128-h128-rw",
+    "resource": "app_com_roblox_client",
+    "sha256": "1e20662918dd01de14d6bb9d251a805765889b3b9b56fa10395bf6ad5b3ee12b"
+  },
+  {
+    "id": "com.netflix.mediaclient",
+    "name": "Netflix",
+    "page": "https://play.google.com/store/apps/details?id=com.netflix.mediaclient&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/fXVS45nukV1x9PYVSKHkCQK0QGCOishIvAOxIZS3sgRem8HS7l9l94_Ggj-WZPrTLePRdNYN4pp4SPAQL7oS0PU=w128-h128-rw",
+    "resource": "app_com_netflix_mediaclient",
+    "sha256": "0687ea4f6acd5c8cb943696c7a7098e40eb9cdb87c21f5aff07f40f3b5d150c9"
+  },
+  {
+    "id": "com.google.android.youtube",
+    "name": "YouTube",
+    "page": "https://play.google.com/store/apps/details?id=com.google.android.youtube&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg=w128-h128-rw",
+    "resource": "app_com_google_android_youtube",
+    "sha256": "445eddc3493889b23fbd5421743f9a37e2e63d0e13e2405661b5b20c3ed49730"
+  },
+  {
+    "id": "com.google.android.apps.tachyon",
+    "name": "Google Meet",
+    "page": "https://play.google.com/store/apps/details?id=com.google.android.apps.tachyon&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/G7KKIhzS9ZKa5iCVAkt1P8vXvVWPbaV9JjkMsgb4BcEjqov0TysngtuJ4jE17DYhi4wblu4UXJDWjr7SYgnZ6A=w128-h128-rw",
+    "resource": "app_com_google_android_apps_tachyon",
+    "sha256": "1e4c12c57553f6a6661b955934a672714eb3728600310468a9f33e07531b9df8"
+  },
+  {
+    "id": "us.zoom.videomeetings",
+    "name": "Zoom",
+    "page": "https://play.google.com/store/apps/details?id=us.zoom.videomeetings&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/-Ajlo-aDBHtpCez_yILc8Kepv_kNhbTJPw1WyvXgkh4O-hvUN-YD_v_0FlJmgRbZ2vn1OmZCmCBOY23h4kJYEA=w128-h128-rw",
+    "resource": "app_us_zoom_videomeetings",
+    "sha256": "977a39b109a4b1d68ba108b2cfa33a83be2e3ef73fd77c8d96def19c246af650"
+  },
+  {
+    "id": "com.instagram.android",
+    "name": "Instagram",
+    "page": "https://play.google.com/store/apps/details?id=com.instagram.android&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q=w128-h128-rw",
+    "resource": "app_com_instagram_android",
+    "sha256": "f5d69b0983ae3b04c65d7e23834de8cc313c06cad085c29c6ea6adb96d6296d5"
+  },
+  {
+    "id": "com.spotify.music",
+    "name": "Spotify",
+    "page": "https://play.google.com/store/apps/details?id=com.spotify.music&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/IzQgYCcnCFCD08GR-3bdtcT8xzOvrNkC84avGT5CwTX2VIqmTmKKJcP_Cd4JoBOdmCMlTndlOzV6hrthg2fOWA=w128-h128-rw",
+    "resource": "app_com_spotify_music",
+    "sha256": "33c8514a2d6cab63a0d11649e2021dc356c4a45131a6acf3db2fb7d149b3f350"
+  },
+  {
+    "id": "com.google.android.gm",
+    "name": "Gmail",
+    "page": "https://play.google.com/store/apps/details?id=com.google.android.gm&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/c6KD_8-GvnGRJA4lRQ4y5YnUa3-LOeYAS7ubw1jWyB9bmr6Kj6zzRvh2A5WBB-Vd3e6zhElmhDv07fCJx2Fc=w128-h128-rw",
+    "resource": "app_com_google_android_gm",
+    "sha256": "2eae187c059465af46ab988ad091ae88e7c0bdc5ddf6218a8b3a72e9600a869f"
+  },
+  {
+    "id": "com.google.android.apps.maps",
+    "name": "Google Maps",
+    "page": "https://play.google.com/store/apps/details?id=com.google.android.apps.maps&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4=w128-h128-rw",
+    "resource": "app_com_google_android_apps_maps",
+    "sha256": "115da443cf03b19e50ccc3c94e925e6c924611adbbfab2d7a02e2ff8424e09b5"
+  },
+  {
+    "id": "com.waze",
+    "name": "Waze",
+    "page": "https://play.google.com/store/apps/details?id=com.waze&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg=w128-h128-rw",
+    "resource": "app_com_waze",
+    "sha256": "7647185da4efa391159535d48402dc45261f839497c1c1da20401d41fdc42968"
+  },
+  {
+    "id": "com.google.android.apps.docs",
+    "name": "Google Drive",
+    "page": "https://play.google.com/store/apps/details?id=com.google.android.apps.docs&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/chc-Fx3Qi3BisTZw1aOteYK_XkMHUiXKRbX2Hc8shyFI8pYt7DcyUPzVwLGJKIeKCKDD6nFVhEtUrIaEyzcnmA=w128-h128-rw",
+    "resource": "app_com_google_android_apps_docs",
+    "sha256": "2a070e4a9ebb6b1c803ef5f24c0185ecda78c5f8821213737528c56b60140289"
+  },
+  {
+    "id": "com.google.android.apps.photos",
+    "name": "Google Fotos",
+    "page": "https://play.google.com/store/apps/details?id=com.google.android.apps.photos&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/kErBTF4VcGwhtKbCr80Bs2R1lNZiYkHbKcf1i3ZF6dg_5LqDAlCI4wU-nzwvo7PAbxeBXM_tv1hc11gr4aIIW-Q=w128-h128-rw",
+    "resource": "app_com_google_android_apps_photos",
+    "sha256": "09fcb73185431c2f0fe9b316a7adbc2d69803461e214211faf8724f4ba70eb04"
+  },
+  {
+    "id": "com.google.android.apps.nbu.files",
+    "name": "Files de Google",
+    "page": "https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.files&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/cjyFg0ABFwOFdLf1GsCGRvOoAANqCnIsFCgwGe8g-FPVaQ5STxoqZAKQOph44Hlx-gO0GMx8AZC9AY1VUBiO=w128-h128-rw",
+    "resource": "app_com_google_android_apps_nbu_files",
+    "sha256": "0d5a3550297d74c0fba29765d99baddccee632e921d71027ac41a1bc246b51a1"
+  },
+  {
+    "id": "com.google.android.apps.translate",
+    "name": "Google Traductor",
+    "page": "https://play.google.com/store/apps/details?id=com.google.android.apps.translate&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/muIZuJn9awFB9XWa4g0aiqFxHbgAFVVfHVQrEmos46v29NfyZX5z1n1ZYBjH3Zvg80Dm90TI2ZdQZMr2cLMcCg=w128-h128-rw",
+    "resource": "app_com_google_android_apps_translate",
+    "sha256": "dfb0e583f893a7914d023b1e0f587fb87d7b94d5bc0bc71e363baaf9d24a6e47"
+  },
+  {
+    "id": "com.google.android.calendar",
+    "name": "Google Calendar",
+    "page": "https://play.google.com/store/apps/details?id=com.google.android.calendar&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/vEoqLbT_QkYcEaawWBRc22N6i98OUtOUpM1LmKdVs_xx7lCsUyFfV0ZiqoUXjMijUteiBhhN4K5MpoF96FRNOg=w128-h128-rw",
+    "resource": "app_com_google_android_calendar",
+    "sha256": "4befa702b683408961bbf14e04cafad2f742e5ac25a3186931a3d6e830db540f"
+  },
+  {
+    "id": "com.microsoft.office.outlook",
+    "name": "Outlook",
+    "page": "https://play.google.com/store/apps/details?id=com.microsoft.office.outlook&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/cQ6W3fn_i56tK1PDQZlKvpuggupXR-kGyzwCtF1vYw-wK9FS3YDVUTnpfEvpbWXXuqH6aJ1JRD_t5bfAyCD4=w128-h128-rw",
+    "resource": "app_com_microsoft_office_outlook",
+    "sha256": "d9a890b9c9956c0572f8db9ac03cd5907bc43e37fc0e4e273336f71194514492"
+  },
+  {
+    "id": "com.adobe.reader",
+    "name": "Adobe Acrobat",
+    "page": "https://play.google.com/store/apps/details?id=com.adobe.reader&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/VIohTA3wyJgKJ-SZzoJeYuykxyVFCbSmXFAjefIGQybY57FX44VCHyVa3CTOZROzWLbMc-VFwL4CEDj47LeRpM0=w128-h128-rw",
+    "resource": "app_com_adobe_reader",
+    "sha256": "01e0692799f26e2fe90a859761c212f9307e0a8e67db836e329362e01a3beeb7"
+  },
+  {
+    "id": "com.whatsapp.w4b",
+    "name": "WhatsApp Business",
+    "page": "https://play.google.com/store/apps/details?id=com.whatsapp.w4b&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/4LJ6f3U5wANt09KBlZ-F-YKooCQXTwHsa3vtTBFmsXWmNy-AdBEoHnWmyT0mGxh-1pQetlSoc9mIkRDJotQYbg=w128-h128-rw",
+    "resource": "app_com_whatsapp_w4b",
+    "sha256": "6f097979fcc5c7e190f799ec6d32a1afa2e3460f5f7cc5bbc9ea83b4e5f89887"
+  },
+  {
+    "id": "com.facebook.lite",
+    "name": "Facebook Lite",
+    "page": "https://play.google.com/store/apps/details?id=com.facebook.lite&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/HWNSz5n5jIISnAJDfnReYsNN565LJlEBfg8GoCsGWpS-rbt9txAwXCQCSJkpl8UObQLRqrGx2xi50epl1JfKP4o=w128-h128-rw",
+    "resource": "app_com_facebook_lite",
+    "sha256": "2b1c7d0fb4b2c2ed9f726e03561ffa4625895fdf7adefa8e1f868e6aff6a5e9e"
+  },
+  {
+    "id": "com.discord",
+    "name": "Discord",
+    "page": "https://play.google.com/store/apps/details?id=com.discord&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/hWM2ymA9U2zFTdbRrAEkowxndSjur3h2wrvp6s5lMYkfpNmhpH4LYU-tWnTkSSuf1qehsYSM5VMrQvd_DwBVFw=w128-h128-rw",
+    "resource": "app_com_discord",
+    "sha256": "24322abbbbd9ef6cc957d9737f55b864af3f9a6e99971d26364b50c992c5062e"
+  },
+  {
+    "id": "com.lemon.lvoverseas",
+    "name": "CapCut",
+    "page": "https://play.google.com/store/apps/details?id=com.lemon.lvoverseas&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/M78HyakHaxKrjoeqYx41E9DXfVYYtx67nvc7Ks4G4zFQeaAJdGCi8gzzGSrHIwlrmnJS6zD9S4fAXqdEwfuHQAQ=w128-h128-rw",
+    "resource": "app_com_lemon_lvoverseas",
+    "sha256": "047ca05d15d93725e88bde40e0bf16e5e8043b03fe3644d7f8785a63fa45ce6f"
+  },
+  {
+    "id": "sinet.startup.inDriver",
+    "name": "inDrive",
+    "page": "https://play.google.com/store/apps/details?id=sinet.startup.inDriver&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/xzaieq15Hxs7nhvtPGPHXzRTJduer8mICZQkTt2Ci9nA_7FAqtyj6ERvYGw5vYWfdLsGs9ZAmI5yYsupz4zoqGg=w128-h128-rw",
+    "resource": "app_sinet_startup_indriver",
+    "sha256": "044434a5613499c2e9558fd1869a2bc93647ed46bab3148a84a6d43576dddad0"
+  },
+  {
+    "id": "com.pedidosya",
+    "name": "PedidosYa",
+    "page": "https://play.google.com/store/apps/details?id=com.pedidosya&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/Oggb68IFAY8GzfzxjimTm1c3U9Vid75tUsvHyKDLhiopuObh9TuQ9V0uyjgx3cjBr9APDCwR982tpUET-b7kQQ=w128-h128-rw",
+    "resource": "app_com_pedidosya",
+    "sha256": "38279587aca1b7d3a1f9d37a39834ba90b7de19a4c216055adb5b98ccaa11777"
+  },
+  {
+    "id": "com.google.android.gms",
+    "name": "Google Play Services",
+    "page": "https://play.google.com/store/apps/details?id=com.google.android.gms&hl=es&gl=US",
+    "image": "https://play-lh.googleusercontent.com/D3ejn0q4icRCmBhgwYtWGc6yPoXoJ5BDFUrtPoehiVkI0T3_WX955zwqV_UNcgik93nz1rTQBkovz9woLs5EqA=w128-h128-rw",
+    "resource": "app_com_google_android_gms",
+    "sha256": "44812f32539ea2881742d7cbcbeebe1f939c905ff555010bca692d9c14d5dc90"
+  }
+]
