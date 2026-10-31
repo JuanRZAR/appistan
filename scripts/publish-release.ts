@@ -29,6 +29,16 @@ function api<T>(run: Runner, endpoint: string): T | null {
   throw new Error(`GitHub no pudo consultar ${endpoint}: ${result.stderr.trim()}`);
 }
 
+function releaseByTag(run: Runner, repository: string, tag: string): Release | null {
+  const published = api<Release>(run, `repos/${repository}/releases/tags/${tag}`);
+  if (published) return published;
+  // GitHub's tag endpoint omits drafts; authenticated release listings include them.
+  const pages = JSON.parse(checked(run, 'gh', ['api', '--paginate', '--slurp', `repos/${repository}/releases?per_page=100`])) as Release[][];
+  const matches = pages.flat().filter(release => release.tag_name === tag);
+  if (matches.length > 1) throw new Error('Hay varios borradores para esta etiqueta. Revisa las Releases antes de publicar.');
+  return matches[0] || null;
+}
+
 function compareVersions(a: string, b: string) {
   if (![a, b].every(value => /^v?\d+\.\d+\.\d+$/.test(value))) throw new Error('La versión publicada no es una versión estable válida.');
   const left = a.replace(/^v/, '').split('.').map(Number), right = b.replace(/^v/, '').split('.').map(Number);
@@ -47,7 +57,7 @@ export async function publishRelease(directory: string, run: Runner): Promise<st
   checked(run, 'git', ['merge-base', '--is-ancestor', release.gitCommit, 'HEAD']);
   const latest = api<Release>(run, `repos/${repository}/releases/latest`);
   if (latest && compareVersions(tag, latest.tag_name) < 0) throw new Error('No se publicará una versión anterior a la última Release.');
-  let remote = api<Release>(run, `repos/${repository}/releases/tags/${tag}`);
+  let remote = releaseByTag(run, repository, tag);
   const checksum = `${release.artifact}.sha256`;
   writeFileSync(join(directory, checksum), `${release.sha256}  ${release.artifact}\n`);
   const names = [release.artifact, 'AppIstan-latest.apk', 'release.json', checksum];
@@ -66,12 +76,12 @@ export async function publishRelease(directory: string, run: Runner): Promise<st
   checked(run, 'git', ['push', '--atomic', 'origin', 'HEAD:refs/heads/main', `refs/tags/${tag}`]);
   if (!remote) {
     checked(run, 'gh', ['release', 'create', tag, '--repo', repository, '--verify-tag', '--draft', '--title', `AppIstan ${release.version}`, '--generate-notes']);
-    remote = api<Release>(run, `repos/${repository}/releases/tags/${tag}`);
+    remote = releaseByTag(run, repository, tag);
     if (!remote) throw new Error('GitHub no devolvió el borrador creado. Reintenta la publicación.');
   }
   if (remote.draft) {
     checked(run, 'gh', ['release', 'upload', tag, ...names.map(name => join(directory, name)), '--repo', repository, '--clobber']);
-    const uploaded = api<Release>(run, `repos/${repository}/releases/tags/${tag}`);
+    const uploaded = releaseByTag(run, repository, tag);
     if (!uploaded) throw new Error('No se pudo comprobar la subida de los archivos.');
     verifyAssets(uploaded, 4);
     checked(run, 'gh', ['release', 'edit', tag, '--repo', repository, '--draft=false', '--latest']);

@@ -1,4 +1,4 @@
-param([string]$ReleaseDirectory)
+﻿param([string]$ReleaseDirectory)
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path -Parent $PSScriptRoot
 $taskBun = Get-Command bun.exe,bun.cmd -ErrorAction SilentlyContinue | Select-Object -First 1

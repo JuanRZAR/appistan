@@ -30,9 +30,10 @@ function setup(version = '0.4.0') {
     }
     if (tool === 'gh') {
       if (args[0] === 'api') {
+        if (args[1] === '--paginate') return ok(JSON.stringify([state.remote ? [state.remote] : []]));
         if (args[1] === '--method') { state.pages = true; return ok(); }
         if (args[1]?.endsWith('/releases/latest')) return state.latest ? ok(JSON.stringify(state.latest)) : missing();
-        if (args[1]?.includes('/releases/tags/')) return state.remote ? ok(JSON.stringify(state.remote)) : missing();
+        if (args[1]?.includes('/releases/tags/')) return state.remote && !state.remote.draft ? ok(JSON.stringify(state.remote)) : missing();
         if (args[1]?.endsWith('/pages')) return state.pages ? ok('{"build_type":"workflow"}') : missing();
       }
       if (args[0] === 'release') {
@@ -63,6 +64,7 @@ test('creates a draft, verifies four uploads, publishes and starts Pages automat
   expect(s.state.remote?.draft).toBe(false); expect(s.state.remote?.assets).toHaveLength(4);
   expect(s.count('gh', 'release', 'create')).toBe(1); expect(s.count('gh', 'workflow', 'run')).toBe(1);
   expect(s.state.pages).toBe(true);
+  expect(s.calls.some(c => c[0] === 'gh' && c.includes('--paginate'))).toBe(true);
   const push = s.calls.find(c => c[0] === 'git' && c[1] === 'push')!;
   expect(push).toContain('--atomic'); expect(push).not.toContain('--force');
 });
