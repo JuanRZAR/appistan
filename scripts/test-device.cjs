@@ -1,5 +1,6 @@
 const { spawnSync } = require('node:child_process');
 const path = require('node:path');
+const fs = require('node:fs');
 const assert = require('node:assert/strict');
 const [adbPath, serial] = process.argv.slice(2);
 assert(adbPath && /^127\.0\.0\.1:\d+$/.test(serial), 'Indica ADB y un emulador local.');
@@ -50,7 +51,11 @@ function awaitStatus(expected) {
 
 console.log('1/4: catálogo y apertura de AppIstan');
 open();
-assert.equal(call('catalog'), '50|50');
+const sdk = Number(shell('getprop', 'ro.build.version.sdk'));
+const normalizeAbi = value => value.toLowerCase().replaceAll('-', '_').replace(/^x64$/, 'x86_64').replace(/^arm64$/, 'arm64_v8a').replace(/^arm$/, 'armeabi_v7a');
+const abis = shell('getprop', 'ro.product.cpu.abilist').split(',').map(normalizeAbi);
+const expectedApps = JSON.parse(fs.readFileSync(path.join(root, 'app/src/main/assets/catalog.json'), 'utf8')).filter(app => (app.minSdk || 26) <= sdk && (!app.abis?.length || app.abis.some(abi => abis.includes(normalizeAbi(abi)))));
+assert.equal(call('catalog'), `${expectedApps.length}|${new Set(expectedApps.map(app => app.id)).size}`);
 assert.equal(version(), 1);
 const before = marker();
 open();

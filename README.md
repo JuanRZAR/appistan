@@ -30,7 +30,11 @@ El script utiliza el ADB del SDK en el puerto de servidor local 5038 para no ree
 
 ## Fuentes y firmas
 
-El catálogo contiene 50 aplicaciones y consultas explícitas de paquetes; no pide visibilidad general de todas las apps. Aptoide se consulta con SDK, ABI y densidad del dispositivo, excluyendo las etiquetas alpha/beta. Algunas aplicaciones incluyen una alternativa de descarga desde el sitio del desarrollador.
+El catálogo depurado contiene 27 aplicaciones con firma corroborada y una descarga HTTPS comprobada; se retiraron 23 entradas sin una fuente utilizable. Solo se muestran las compatibles con el nivel de Android y las arquitecturas verificadas del dispositivo. Se usan consultas explícitas de paquetes, sin visibilidad general de todas las apps. Aptoide se consulta con SDK, ABI y densidad del dispositivo, excluyendo las etiquetas alpha/beta. Algunas aplicaciones incluyen una alternativa de descarga desde el sitio del desarrollador.
+
+El filtro **Comunes** muestra Facebook, WhatsApp, TikTok y Messenger, en ese orden. Es adicional a las categorías: esas aplicaciones permanecen también en Social y Todas. La búsqueda se combina con el filtro seleccionado. El contador refleja el catálogo visible en cada dispositivo.
+
+La comprobación de fuentes de esta versión está registrada en `docs/catalog-availability-0.2.0.json`. Incluye respuestas de metadatos y cabeceras de descarga del APK base y sus splits; no equivale a una instalación de las 27 aplicaciones.
 
 `app/src/main/assets/trust.json` contiene huellas SHA-256 corroboradas mediante los archivos Digital Asset Links de los dominios oficiales. Sus fuentes y fechas quedan registradas. Para actualizarlo:
 
@@ -40,7 +44,7 @@ El catálogo contiene 50 aplicaciones y consultas explícitas de paquetes; no pi
 
 Las huellas nuevas deben revisarse antes de crear un commit. La etiqueta de confianza de Aptoide y el MD5 de sus archivos no se usan como prueba de autoría. Se verifican las firmas criptográficas de todos los APK con `apksig`, el identificador y versión del APK base, y la coincidencia de firmantes del conjunto. Android vuelve a validar el conjunto y la compatibilidad de la actualización al instalar.
 
-Una aplicación nueva necesita una huella corroborada; una actualización también puede utilizar el certificado de su instalación existente. Si faltan firmas o una descarga compatible, la app muestra el motivo. No se debe desinstalar una aplicación para resolver un conflicto de firmas, porque eso eliminaría sus datos.
+Una aplicación nueva necesita una huella corroborada; una actualización también puede utilizar el certificado de su instalación existente. Las entradas sin firma corroborada se excluyen del catálogo. Si una fuente deja de ofrecer una descarga después de esta comprobación, la cola informa del fallo. No se debe desinstalar una aplicación para resolver un conflicto de firmas, porque eso eliminaría sus datos.
 
 ## Cola y permisos
 
@@ -67,7 +71,7 @@ Cada entrega incluye un APK firmado, SHA-256, `release.json` con versión, tama�
 ## Límites actuales
 
 - La última versión depende del catálogo de la fuente y de la compatibilidad del equipo. La disponibilidad puede cambiar.
-- Las entradas sin certificados corroborados no admiten una instalación nueva. No se han validado las 50 aplicaciones en dispositivos reales.
+- Las entradas sin certificados corroborados o sin fuente utilizable se retiran del catálogo. No se han instalado las 27 aplicaciones en dispositivos reales.
 - Las distribuciones que requieren archivos OBB se muestran como no disponibles; los juegos pueden descargar contenido propio al abrirse.
 - La elección de variantes depende de los metadatos de Aptoide; un conjunto incompleto o incompatible se rechaza.
 - En BlueStacks se verifican el catálogo, la actualización con confirmación de Android, el rechazo de un APK alterado y la omisión de una versión anterior, conservando un marcador único de datos. Esto no demuestra que todas las apps bancarias, juegos o servicios funcionen en un teléfono real.

@@ -1,4 +1,15 @@
-# Validación de AppIstan 0.1.0
+# Validación de AppIstan
+
+## Versión 0.2.0
+
+- 15 pruebas unitarias: las 10 comprobaciones anteriores y 5 del catálogo, búsqueda, filtro Comunes, compatibilidad y codificación de la API.
+- Fuentes comprobadas mediante metadatos y respuestas HTTPS del APK base y todos sus splits: se conservan 27 aplicaciones y se retiran 23. El registro está en `docs/catalog-availability-0.2.0.json`.
+- Comprobación adicional de variantes ARM64 para WhatsApp, WhatsApp Business, YouTube, Google Maps y Waze.
+- Interfaz comprobada por ADB en BlueStacks: 22 aplicaciones compatibles con Android 9 y exactamente Facebook, WhatsApp, TikTok y Messenger en Comunes.
+- Actualización del mismo paquete público y con la misma clave; no se instalaron variantes de desarrollo, fixtures ni aplicaciones de terceros durante estas comprobaciones.
+- La disponibilidad del proveedor puede cambiar después de la comprobación. Se conserva la verificación criptográfica de cada APK antes de instalarlo.
+
+## Versión 0.1.0
 
 Entorno: Windows, BlueStacks Pie64 con Android 9 (API 28). Las pruebas usan el ADB del SDK con servidor aislado en el puerto 5038. No se utilizó root ni una cuenta de Google.
 

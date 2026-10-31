@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-31
+
+- Catálogo depurado: 27 aplicaciones con descargas comprobadas y 23 entradas sin fuente verificable retiradas.
+- Filtro Comunes con Facebook, WhatsApp, TikTok y Messenger; conserva su presencia en Social y Todas.
+- Contador dinámico y filtrado por versión de Android y arquitectura compatible.
+- Corrección de la codificación de la consulta a Aptoide, que rechazaba el relleno Base64 en algunos dispositivos.
+- Pruebas del nuevo filtro, la búsqueda combinada, las firmas del catálogo y la consulta de compatibilidad.
+
 ## [0.1.0] - 2026-10-31
 
 - Primera versión de AppIstan en Kotlin y Material Design 3.

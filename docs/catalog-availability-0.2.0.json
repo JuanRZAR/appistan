@@ -1,0 +1,1237 @@
+{
+  "checkedUtc": "2026-10-31T05:27:41.385Z",
+  "method": "Publisher SHA-256 pins, compatible Aptoide metadata and successful HTTPS range request headers for base and every required split; no APK installation performed",
+  "kept": [
+    {
+      "id": "com.whatsapp",
+      "name": "WhatsApp",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "2.26.43.14",
+          "files": 3
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "2.26.43.14",
+          "files": 3
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "2.26.43.14",
+          "files": 3
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "2.26.43.14",
+          "files": 3
+        }
+      ]
+    },
+    {
+      "id": "com.facebook.katana",
+      "name": "Facebook",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "585.0.0.47.54",
+          "files": 2
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "585.0.0.47.54",
+          "files": 2
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 30,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "585.0.0.47.54",
+          "files": 2
+        }
+      ]
+    },
+    {
+      "id": "com.zhiliaoapp.musically",
+      "name": "TikTok",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "47.5.3",
+          "files": 4
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "47.5.3",
+          "files": 4
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "47.5.3",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "com.facebook.orca",
+      "name": "Messenger",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 24,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "528.0.0.62.107",
+          "files": 2
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 28,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "567.1.0.53.87",
+          "files": 2
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 28,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "567.1.0.53.87",
+          "files": 2
+        }
+      ]
+    },
+    {
+      "id": "com.roblox.client",
+      "name": "Roblox",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "x86_64",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "2.745.1142",
+          "files": 2
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "x86_64"
+          ],
+          "version": "2.745.1142",
+          "files": 2
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "2.745.1142",
+          "files": 2
+        }
+      ]
+    },
+    {
+      "id": "com.netflix.mediaclient",
+      "name": "Netflix",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 24,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "8.143.3 build 16 52204",
+          "files": 4
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 28,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "9.90.0 build 10 74712",
+          "files": 4
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 28,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "9.90.0 build 10 74712",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "com.google.android.youtube",
+      "name": "YouTube",
+      "minSdk": 29,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": false,
+          "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.012632131576538086,\"human\":\"13 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.google.android.youtube' not found\",\"details\":{}}]}"
+        },
+        {
+          "sdk": 28,
+          "ok": false,
+          "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.013164043426513672,\"human\":\"13 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.google.android.youtube' not found\",\"details\":{}}]}"
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 29,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "21.43.523",
+          "files": 4
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 32,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "21.43.523",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "com.google.android.apps.tachyon",
+      "name": "Google Meet",
+      "minSdk": 32,
+      "abis": [
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": false,
+          "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.009855985641479492,\"human\":\"10 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.google.android.apps.tachyon' not found\",\"details\":{}}]}"
+        },
+        {
+          "sdk": 28,
+          "ok": false,
+          "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.02726602554321289,\"human\":\"27 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.google.android.apps.tachyon' not found\",\"details\":{}}]}"
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 32,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "383.0.1007082291.duo.android_20261026.02_p0.s",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "us.zoom.videomeetings",
+      "name": "Zoom",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "6.5.12.33008",
+          "files": 3
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 28,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "7.2.1.43844",
+          "files": 3
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 28,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "7.2.1.43844",
+          "files": 3
+        }
+      ]
+    },
+    {
+      "id": "com.instagram.android",
+      "name": "Instagram",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "451.0.0.53.80",
+          "files": 2
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 28,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "453.0.0.0.50",
+          "files": 2
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 28,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "453.0.0.0.50",
+          "files": 2
+        }
+      ]
+    },
+    {
+      "id": "com.spotify.music",
+      "name": "Spotify",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "x86_64",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 24,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "9.1.94.1929",
+          "files": 4
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 24,
+          "abis": [
+            "x86_64"
+          ],
+          "version": "9.1.94.1929",
+          "files": 4
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 24,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "9.1.94.1929",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "com.google.android.gm",
+      "name": "Gmail",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 24,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "2026.10.05.998732664.Release",
+          "files": 4
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 24,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "2026.10.05.998732664.Release",
+          "files": 4
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 29,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "2026.10.19.1005695425.Release",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "com.google.android.apps.maps",
+      "name": "Google Maps",
+      "minSdk": 29,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": false,
+          "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.02378392219543457,\"human\":\"24 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.google.android.apps.maps' not found\",\"details\":{}}]}"
+        },
+        {
+          "sdk": 28,
+          "ok": false,
+          "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.011433839797973633,\"human\":\"11 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.google.android.apps.maps' not found\",\"details\":{}}]}"
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 29,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "26.43.00.1002020710",
+          "files": 4
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 32,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "26.43.00.1002020710",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "com.waze",
+      "name": "Waze",
+      "minSdk": 29,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": false,
+          "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.01580214500427246,\"human\":\"16 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.waze' not found\",\"details\":{}}]}"
+        },
+        {
+          "sdk": 28,
+          "ok": false,
+          "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.015066862106323242,\"human\":\"15 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.waze' not found\",\"details\":{}}]}"
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 29,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "5.26.5.0",
+          "files": 4
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 32,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "5.26.5.0",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "com.google.android.apps.docs",
+      "name": "Google Drive",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "2.26.407.1.all.alldpi",
+          "files": 4
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "2.26.417.0.all.alldpi",
+          "files": 4
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 32,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "2.26.437.0.all.alldpi",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "com.google.android.apps.photos",
+      "name": "Google Fotos",
+      "minSdk": 32,
+      "abis": [
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": false,
+          "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.1464710235595703,\"human\":\"146 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.google.android.apps.photos' not found\",\"details\":{}}]}"
+        },
+        {
+          "sdk": 28,
+          "ok": false,
+          "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.015626192092895508,\"human\":\"16 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.google.android.apps.photos' not found\",\"details\":{}}]}"
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 32,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "7.99.0.1007655401",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "com.google.android.apps.nbu.files",
+      "name": "Files de Google",
+      "minSdk": 26,
+      "abis": [
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": false,
+          "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.009215116500854492,\"human\":\"9 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.google.android.apps.nbu.files' not found\",\"details\":{}}]}"
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "1.11362.916736205.0-release",
+          "files": 3
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 32,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "1.13003.1002253400.1-release",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "com.google.android.apps.translate",
+      "name": "Google Traductor",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "10.41.74.1002908522.1-release",
+          "files": 1
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "10.41.74.1002908522.1-release",
+          "files": 1
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "10.41.74.1002908522.1-release",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "id": "com.google.android.calendar",
+      "name": "Google Calendar",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "2025.38.1-813246277-release",
+          "files": 4
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "2026.41.0-1001919035-release",
+          "files": 4
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 32,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "2026.42.0-1006868587-release",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "com.microsoft.office.outlook",
+      "name": "Outlook",
+      "minSdk": 26,
+      "abis": [
+        "x86",
+        "x86_64",
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "x86",
+            "x86_64",
+            "armeabi-v7a",
+            "arm64-v8a"
+          ],
+          "version": "4.2316.4",
+          "files": 1
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 28,
+          "abis": [
+            "x86",
+            "x86_64",
+            "armeabi-v7a",
+            "arm64-v8a"
+          ],
+          "version": "5.2541.1",
+          "files": 1
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 29,
+          "abis": [
+            "x86",
+            "x86_64",
+            "armeabi-v7a",
+            "arm64-v8a"
+          ],
+          "version": "5.2632.1",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "id": "com.adobe.reader",
+      "name": "Adobe Acrobat",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "x86_64",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 24,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "24.8.1.34717",
+          "files": 4
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 28,
+          "abis": [
+            "x86_64"
+          ],
+          "version": "26.10.0.51147",
+          "files": 4
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 28,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "26.10.0.51147",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "com.whatsapp.w4b",
+      "name": "WhatsApp Business",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "2.26.43.11",
+          "files": 3
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "2.26.43.11",
+          "files": 3
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "2.26.43.11",
+          "files": 3
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "2.26.43.11",
+          "files": 3
+        }
+      ]
+    },
+    {
+      "id": "com.facebook.lite",
+      "name": "Facebook Lite",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "535.0.0.10.106",
+          "files": 1
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "513.0.0.0.56",
+          "files": 1
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "513.0.0.0.56",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "id": "com.discord",
+      "name": "Discord",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "x86_64",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 24,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "351.11 - Stable",
+          "files": 4
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 24,
+          "abis": [
+            "x86_64"
+          ],
+          "version": "351.11 - Stable",
+          "files": 4
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 24,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "351.11 - Stable",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "com.lemon.lvoverseas",
+      "name": "CapCut",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "19.9.0",
+          "files": 4
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "19.9.0",
+          "files": 4
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 23,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "19.9.0",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "id": "sinet.startup.inDriver",
+      "name": "inDrive",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "5.172.0",
+          "files": 3
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 26,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "5.172.0",
+          "files": 3
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 29,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "5.190.0",
+          "files": 3
+        }
+      ]
+    },
+    {
+      "id": "com.pedidosya",
+      "name": "PedidosYa",
+      "minSdk": 26,
+      "abis": [
+        "armeabi-v7a",
+        "arm64-v8a"
+      ],
+      "probes": [
+        {
+          "sdk": 26,
+          "ok": true,
+          "minSdk": 24,
+          "abis": [
+            "armeabi-v7a"
+          ],
+          "version": "10.38.7.2",
+          "files": 4
+        },
+        {
+          "sdk": 28,
+          "ok": true,
+          "minSdk": 24,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "10.38.7.2",
+          "files": 4
+        },
+        {
+          "sdk": 36,
+          "ok": true,
+          "minSdk": 32,
+          "abis": [
+            "arm64-v8a"
+          ],
+          "version": "10.42.8.0",
+          "files": 3
+        }
+      ]
+    }
+  ],
+  "removed": [
+    {
+      "id": "com.yellowpepper.pichincha",
+      "name": "Banca Móvil Pichincha",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "com.snaptube.premium",
+      "name": "Snaptube",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "com.openai.chatgpt",
+      "name": "ChatGPT",
+      "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.044319868087768555,\"human\":\"44 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.openai.chatgpt' not found\",\"details\":{}}]}; metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.02089405059814453,\"human\":\"21 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.openai.chatgpt' not found\",\"details\":{}}]}; metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.04166913032531738,\"human\":\"42 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.openai.chatgpt' not found\",\"details\":{}}]}"
+    },
+    {
+      "id": "com.dts.freefireth",
+      "name": "Free Fire",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "org.telegram.messenger",
+      "name": "Telegram",
+      "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.01684713363647461,\"human\":\"17 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:org.telegram.messenger' not found\",\"details\":{}}]}; metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.01708197593688965,\"human\":\"17 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:org.telegram.messenger' not found\",\"details\":{}}]}; metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.0438079833984375,\"human\":\"44 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:org.telegram.messenger' not found\",\"details\":{}}]}"
+    },
+    {
+      "id": "com.wbd.stream",
+      "name": "HBO Max",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "com.cbs.ca",
+      "name": "Paramount+",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "com.microsoft.teams",
+      "name": "Microsoft Teams",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "com.microsoft.skydrive",
+      "name": "OneDrive",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "com.android.chrome",
+      "name": "Chrome",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "com.google.android.inputmethod.latin",
+      "name": "Gboard",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "com.microsoft.office.word",
+      "name": "Word",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "com.microsoft.office.excel",
+      "name": "Excel",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "com.microsoft.office.powerpoint",
+      "name": "PowerPoint",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "org.videolan.vlc",
+      "name": "VLC",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "org.thoughtcrime.securesms",
+      "name": "Signal",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "com.canva.editor",
+      "name": "Canva",
+      "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.018779993057250977,\"human\":\"19 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.canva.editor' not found\",\"details\":{}}]}; metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.02601003646850586,\"human\":\"26 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.canva.editor' not found\",\"details\":{}}]}; metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.019611835479736328,\"human\":\"20 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.canva.editor' not found\",\"details\":{}}]}"
+    },
+    {
+      "id": "com.mercadolibre",
+      "name": "Mercado Libre",
+      "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.022330045700073242,\"human\":\"22 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.mercadolibre' not found\",\"details\":{}}]}; metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.014531135559082031,\"human\":\"15 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.mercadolibre' not found\",\"details\":{}}]}; metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.02912282943725586,\"human\":\"29 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.mercadolibre' not found\",\"details\":{}}]}"
+    },
+    {
+      "id": "com.ubercab",
+      "name": "Uber",
+      "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.025935888290405273,\"human\":\"26 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.ubercab' not found\",\"details\":{}}]}; metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.016516923904418945,\"human\":\"17 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.ubercab' not found\",\"details\":{}}]}; metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.026695966720581055,\"human\":\"27 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.ubercab' not found\",\"details\":{}}]}"
+    },
+    {
+      "id": "com.appdeuna.wallet",
+      "name": "Deuna",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "payPhone_Android.PayPhone_Android",
+      "name": "Payphone",
+      "reason": "no independently verified signer"
+    },
+    {
+      "id": "com.bancodeguayaquil",
+      "name": "Banco Guayaquil",
+      "reason": "metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.0228421688079834,\"human\":\"23 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.bancodeguayaquil' not found\",\"details\":{}}]}; metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.016434192657470703,\"human\":\"16 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.bancodeguayaquil' not found\",\"details\":{}}]}; metadata HTTP 404: {\"info\":{\"status\":\"FAIL\",\"time\":{\"seconds\":0.024371862411499023,\"human\":\"24 milliseconds\"}},\"errors\":[{\"code\":\"APP-1\",\"description\":\"Application 'package:com.bancodeguayaquil' not found\",\"details\":{}}]}"
+    },
+    {
+      "id": "com.produbanco",
+      "name": "Produbanco",
+      "reason": "no independently verified signer"
+    }
+  ]
+}

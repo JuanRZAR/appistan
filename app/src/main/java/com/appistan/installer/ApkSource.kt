@@ -1,6 +1,6 @@
 package com.appistan.installer
 
-import android.util.Base64
+import java.util.Base64
 import org.json.JSONObject
 import java.net.URI
 import javax.net.ssl.HttpsURLConnection
@@ -36,8 +36,7 @@ class ApkSource {
 
     private fun resolveAptoide(app: CatalogApp, device: DeviceProfile): AppRelease {
         require(app.id.matches(Regex("[a-zA-Z0-9_.]+")))
-        val q = "maxSdk=${device.sdk}&maxScreen=normal&maxGles=3.2&myCPU=${device.abis.joinToString(",")}&myDensity=${device.density}"
-        val encoded = Base64.encodeToString(q.toByteArray(), Base64.NO_WRAP or Base64.URL_SAFE)
+        val encoded = encodeDeviceQuery(device)
         val response = getJson("https://ws75.aptoide.com/api/7/app/get/package_name=${app.id}/aab=1/not_apk_tags=alpha,beta/q=$encoded/country=EC/lang=es_EC")
         require(response.getJSONObject("info").getString("status") == "OK") { "La fuente no dispone de esta aplicación" }
         val meta = response.getJSONObject("nodes").getJSONObject("meta").getJSONObject("data")
@@ -45,6 +44,11 @@ class ApkSource {
     }
 
     companion object {
+        fun encodeDeviceQuery(device: DeviceProfile): String {
+            val query = "maxSdk=${device.sdk}&maxScreen=normal&maxGles=3.2&myCPU=${device.abis.joinToString(",")}&myDensity=${device.density}"
+            // Aptoide's SBASE64 validator rejects '=' padding.
+            return Base64.getUrlEncoder().withoutPadding().encodeToString(query.toByteArray(Charsets.UTF_8))
+        }
         fun getJson(url: String): JSONObject {
             ReleasePolicy.requireHttps(url)
             val connection = URI(url).toURL().openConnection() as HttpsURLConnection

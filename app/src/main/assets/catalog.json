@@ -1,52 +1,302 @@
 [
- {"id":"com.whatsapp","name":"WhatsApp","category":"Social","domain":"www.whatsapp.com"},
- {"id":"com.facebook.katana","name":"Facebook","category":"Social","domain":"www.facebook.com"},
- {"id":"com.zhiliaoapp.musically","name":"TikTok","category":"Social","domain":"www.tiktok.com"},
- {"id":"com.facebook.orca","name":"Messenger","category":"Social","domain":"www.messenger.com"},
- {"id":"com.yellowpepper.pichincha","name":"Banca Móvil Pichincha","category":"Ecuador","domain":"www.pichincha.com"},
- {"id":"com.snaptube.premium","name":"Snaptube","category":"Multimedia","domain":"www.snaptube.com"},
- {"id":"com.openai.chatgpt","name":"ChatGPT","category":"Productividad","domain":"chatgpt.com"},
- {"id":"com.dts.freefireth","name":"Free Fire","category":"Juegos","domain":"ff.garena.com"},
- {"id":"com.roblox.client","name":"Roblox","category":"Juegos","domain":"www.roblox.com"},
- {"id":"org.telegram.messenger","name":"Telegram","category":"Social","domain":"t.me"},
- {"id":"com.netflix.mediaclient","name":"Netflix","category":"Multimedia","domain":"www.netflix.com"},
- {"id":"com.wbd.stream","name":"HBO Max","category":"Multimedia","domain":"www.hbomax.com"},
- {"id":"com.cbs.ca","name":"Paramount+","category":"Multimedia","domain":"www.paramountplus.com"},
- {"id":"com.google.android.youtube","name":"YouTube","category":"Multimedia","domain":"www.youtube.com"},
- {"id":"com.google.android.apps.tachyon","name":"Google Meet","category":"Productividad","domain":"meet.google.com"},
- {"id":"us.zoom.videomeetings","name":"Zoom","category":"Productividad","domain":"zoom.us"},
- {"id":"com.microsoft.teams","name":"Microsoft Teams","category":"Productividad","domain":"teams.microsoft.com"},
- {"id":"com.instagram.android","name":"Instagram","category":"Social","domain":"www.instagram.com"},
- {"id":"com.microsoft.skydrive","name":"OneDrive","category":"Productividad","domain":"onedrive.live.com"},
- {"id":"com.spotify.music","name":"Spotify","category":"Multimedia","domain":"www.spotify.com"},
- {"id":"com.android.chrome","name":"Chrome","category":"Google","domain":"www.google.com"},
- {"id":"com.google.android.gm","name":"Gmail","category":"Google","domain":"mail.google.com"},
- {"id":"com.google.android.apps.maps","name":"Google Maps","category":"Google","domain":"www.google.com"},
- {"id":"com.waze","name":"Waze","category":"Google","domain":"www.waze.com"},
- {"id":"com.google.android.apps.docs","name":"Google Drive","category":"Google","domain":"drive.google.com"},
- {"id":"com.google.android.apps.photos","name":"Google Fotos","category":"Google","domain":"photos.google.com"},
- {"id":"com.google.android.apps.nbu.files","name":"Files de Google","category":"Google","domain":"files.google.com"},
- {"id":"com.google.android.inputmethod.latin","name":"Gboard","category":"Google","domain":"www.google.com"},
- {"id":"com.google.android.apps.translate","name":"Google Traductor","category":"Google","domain":"translate.google.com"},
- {"id":"com.google.android.calendar","name":"Google Calendar","category":"Google","domain":"calendar.google.com"},
- {"id":"com.microsoft.office.outlook","name":"Outlook","category":"Productividad","domain":"outlook.live.com"},
- {"id":"com.microsoft.office.word","name":"Word","category":"Productividad","domain":"www.microsoft.com"},
- {"id":"com.microsoft.office.excel","name":"Excel","category":"Productividad","domain":"www.microsoft.com"},
- {"id":"com.microsoft.office.powerpoint","name":"PowerPoint","category":"Productividad","domain":"www.microsoft.com"},
- {"id":"com.adobe.reader","name":"Adobe Acrobat","category":"Productividad","domain":"acrobat.adobe.com"},
- {"id":"org.videolan.vlc","name":"VLC","category":"Multimedia","domain":"www.videolan.org"},
- {"id":"com.whatsapp.w4b","name":"WhatsApp Business","category":"Social","domain":"www.whatsapp.com"},
- {"id":"com.facebook.lite","name":"Facebook Lite","category":"Social","domain":"www.facebook.com"},
- {"id":"org.thoughtcrime.securesms","name":"Signal","category":"Social","domain":"signal.org"},
- {"id":"com.discord","name":"Discord","category":"Social","domain":"discord.com"},
- {"id":"com.lemon.lvoverseas","name":"CapCut","category":"Creatividad","domain":"www.capcut.com"},
- {"id":"com.canva.editor","name":"Canva","category":"Creatividad","domain":"www.canva.com"},
- {"id":"com.mercadolibre","name":"Mercado Libre","category":"Ecuador","domain":"www.mercadolibre.com.ec"},
- {"id":"com.ubercab","name":"Uber","category":"Ecuador","domain":"m.uber.com"},
- {"id":"sinet.startup.inDriver","name":"inDrive","category":"Ecuador","domain":"indrive.com"},
- {"id":"com.pedidosya","name":"PedidosYa","category":"Ecuador","domain":"www.pedidosya.com.ec"},
- {"id":"com.appdeuna.wallet","name":"Deuna","category":"Ecuador","domain":"www.deuna.ec"},
- {"id":"payPhone_Android.PayPhone_Android","name":"Payphone","category":"Ecuador","domain":"payphone.app"},
- {"id":"com.bancodeguayaquil","name":"Banco Guayaquil","category":"Ecuador","domain":"www.bancoguayaquil.com"},
- {"id":"com.produbanco","name":"Produbanco","category":"Ecuador","domain":"www.produbanco.com.ec"}
+  {
+    "id": "com.whatsapp",
+    "name": "WhatsApp",
+    "category": "Social",
+    "domain": "www.whatsapp.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.facebook.katana",
+    "name": "Facebook",
+    "category": "Social",
+    "domain": "www.facebook.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.zhiliaoapp.musically",
+    "name": "TikTok",
+    "category": "Social",
+    "domain": "www.tiktok.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.facebook.orca",
+    "name": "Messenger",
+    "category": "Social",
+    "domain": "www.messenger.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.roblox.client",
+    "name": "Roblox",
+    "category": "Juegos",
+    "domain": "www.roblox.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "x86_64",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.netflix.mediaclient",
+    "name": "Netflix",
+    "category": "Multimedia",
+    "domain": "www.netflix.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.google.android.youtube",
+    "name": "YouTube",
+    "category": "Multimedia",
+    "domain": "www.youtube.com",
+    "minSdk": 29,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.google.android.apps.tachyon",
+    "name": "Google Meet",
+    "category": "Productividad",
+    "domain": "meet.google.com",
+    "minSdk": 32,
+    "abis": [
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "us.zoom.videomeetings",
+    "name": "Zoom",
+    "category": "Productividad",
+    "domain": "zoom.us",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.instagram.android",
+    "name": "Instagram",
+    "category": "Social",
+    "domain": "www.instagram.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.spotify.music",
+    "name": "Spotify",
+    "category": "Multimedia",
+    "domain": "www.spotify.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "x86_64",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.google.android.gm",
+    "name": "Gmail",
+    "category": "Google",
+    "domain": "mail.google.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.google.android.apps.maps",
+    "name": "Google Maps",
+    "category": "Google",
+    "domain": "www.google.com",
+    "minSdk": 29,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.waze",
+    "name": "Waze",
+    "category": "Google",
+    "domain": "www.waze.com",
+    "minSdk": 29,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.google.android.apps.docs",
+    "name": "Google Drive",
+    "category": "Google",
+    "domain": "drive.google.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.google.android.apps.photos",
+    "name": "Google Fotos",
+    "category": "Google",
+    "domain": "photos.google.com",
+    "minSdk": 32,
+    "abis": [
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.google.android.apps.nbu.files",
+    "name": "Files de Google",
+    "category": "Google",
+    "domain": "files.google.com",
+    "minSdk": 26,
+    "abis": [
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.google.android.apps.translate",
+    "name": "Google Traductor",
+    "category": "Google",
+    "domain": "translate.google.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.google.android.calendar",
+    "name": "Google Calendar",
+    "category": "Google",
+    "domain": "calendar.google.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.microsoft.office.outlook",
+    "name": "Outlook",
+    "category": "Productividad",
+    "domain": "outlook.live.com",
+    "minSdk": 26,
+    "abis": [
+      "x86",
+      "x86_64",
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.adobe.reader",
+    "name": "Adobe Acrobat",
+    "category": "Productividad",
+    "domain": "acrobat.adobe.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "x86_64",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.whatsapp.w4b",
+    "name": "WhatsApp Business",
+    "category": "Social",
+    "domain": "www.whatsapp.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.facebook.lite",
+    "name": "Facebook Lite",
+    "category": "Social",
+    "domain": "www.facebook.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.discord",
+    "name": "Discord",
+    "category": "Social",
+    "domain": "discord.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "x86_64",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.lemon.lvoverseas",
+    "name": "CapCut",
+    "category": "Creatividad",
+    "domain": "www.capcut.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "sinet.startup.inDriver",
+    "name": "inDrive",
+    "category": "Ecuador",
+    "domain": "indrive.com",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "id": "com.pedidosya",
+    "name": "PedidosYa",
+    "category": "Ecuador",
+    "domain": "www.pedidosya.com.ec",
+    "minSdk": 26,
+    "abis": [
+      "armeabi-v7a",
+      "arm64-v8a"
+    ]
+  }
 ]

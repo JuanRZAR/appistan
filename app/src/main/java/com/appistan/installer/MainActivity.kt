@@ -147,20 +147,20 @@ class MainActivity : ComponentActivity() {
         } }
     ) { insets ->
         if (tab == 0) {
-            val visible = model.app.catalog.apps.filter { (category == "Todas" || it.category == category) && (it.name.contains(query, true) || it.id.contains(query, true)) }
+            val visible = CatalogFilter.apply(model.app.catalog.apps, category, query)
             LazyColumn(Modifier.fillMaxSize().padding(insets), contentPadding = PaddingValues(bottom = 16.dp)) {
                 item { Column(Modifier.padding(horizontal = 20.dp, vertical = 12.dp)) {
                     Text("PREPARA TU TELÉFONO", color = MaterialTheme.colorScheme.primary, style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.Bold)
                     Text("Tus apps.\nEn un solo lugar.", style = MaterialTheme.typography.headlineLarge, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 8.dp, bottom = 12.dp))
                     Text("Elige tus favoritas. AppIstan se encarga de las descargas y te guía para instalarlas.", color = MaterialTheme.colorScheme.onSurfaceVariant)
                     Row(Modifier.padding(top = 16.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        AssistChip(onClick = {}, label = { Text("50 aplicaciones") }, leadingIcon = { Icon(Icons.Outlined.Apps, null, Modifier.size(16.dp)) })
+                        AssistChip(onClick = {}, label = { Text("${model.app.catalog.apps.size} aplicaciones") }, leadingIcon = { Icon(Icons.Outlined.Apps, null, Modifier.size(16.dp)) })
                         AssistChip(onClick = {}, label = { Text("Sin cuenta de Google") }, leadingIcon = { Icon(Icons.Outlined.PersonOutline, null, Modifier.size(16.dp)) })
                     }
                     OutlinedTextField(query, onValueChange = { query = it }, placeholder = { Text("Buscar aplicaciones") }, leadingIcon = { Icon(Icons.Outlined.Search, null) }, singleLine = true, keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search), keyboardActions = KeyboardActions(onSearch = { focus.clearFocus() }), shape = RoundedCornerShape(16.dp), modifier = Modifier.fillMaxWidth().padding(top = 12.dp))
                 } }
                 item { Row(Modifier.horizontalScroll(rememberScrollState()).padding(horizontal = 20.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    (listOf("Todas") + model.app.catalog.apps.map { it.category }.distinct()).forEach { value -> FilterChip(selected = category == value, onClick = { category = value }, label = { Text(value) }) }
+                    (listOf("Todas", "Comunes") + model.app.catalog.apps.map { it.category }.distinct()).forEach { value -> FilterChip(selected = category == value, onClick = { category = value }, label = { Text(value) }) }
                 } }
                 item { Row(Modifier.fillMaxWidth().padding(start = 20.dp, end = 12.dp, top = 8.dp), verticalAlignment = Alignment.CenterVertically) {
                     Text("${visible.size} ${if (visible.size == 1) "aplicación" else "aplicaciones"}", Modifier.weight(1f), style = MaterialTheme.typography.titleSmall)
@@ -171,7 +171,7 @@ class MainActivity : ComponentActivity() {
                     CatalogRow(app, state, app.id in selected, !running && state?.verified == true) { model.toggle(app.id) }
                 }
                 if (visible.isEmpty()) item { EmptyState("Sin resultados", "Prueba con otro nombre o categoría.", Icons.Outlined.Search) }
-                item { Text("Las versiones se consultan al comenzar. Las apps sin firma corroborada se muestran como no disponibles.", Modifier.padding(20.dp), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
+                item { Text("Las versiones se consultan al comenzar. El catálogo muestra aplicaciones con una fuente verificada y compatibles con tu dispositivo.", Modifier.padding(20.dp), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
             }
         } else if (rows.isEmpty()) {
             Box(Modifier.fillMaxSize().padding(insets), contentAlignment = Alignment.Center) {
