@@ -74,6 +74,18 @@ La primera clave se crea una sola vez con `./scripts/New-ReleaseKey.ps1`. Se con
 
 Cada entrega incluye un APK firmado, su alias `AppIstan-latest.apk`, SHA-256, `release.json` con versión, tamaño y commit, y una etiqueta Git `vX.Y.Z`. El script exige un árbol de trabajo limpio y no reutiliza una etiqueta existente. Las salidas quedan en `releases/X.Y.Z/` y no se agregan a Git.
 
+`Release.ps1` publica automáticamente al terminar: sube `main` y la etiqueta, crea un borrador de Release en GitHub, adjunta los APK y metadatos, verifica las huellas de los archivos subidos y publica la entrega como la última versión. Después activa Pages con GitHub Actions si hace falta e inicia la actualización del sitio. La firma se realiza en esta computadora; la clave no se copia a GitHub.
+
+Se necesita Bun, GitHub CLI y una sesión de GitHub con acceso al repositorio. En esta computadora se admite la copia portátil de GitHub CLI en `.tools/github-cli/bin/gh.exe` y se reutiliza la autenticación configurada en Git mediante su gestor de credenciales. El token solo se transmite al proceso de GitHub CLI en memoria; no se escribe en el proyecto ni se imprime.
+
+Para generar una entrega sin publicarla, usar `Release.ps1 -LocalOnly`. Si la conexión o Pages fallan después de generar el APK, reintentar sin recompilar:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./scripts/Publish-Release.ps1
+```
+
+El reintento reutiliza un borrador incompleto. Si la Release ya está publicada y sus archivos coinciden, conserva esos archivos e inicia Pages; si difieren, se detiene y exige una versión nueva. No reemplaza APK publicados ni hace `git push --force`.
+
 ## Límites actuales
 
 - La última versión depende del catálogo de la fuente y de la compatibilidad del equipo. La disponibilidad puede cambiar.

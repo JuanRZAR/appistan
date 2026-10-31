@@ -1,4 +1,5 @@
-﻿$ErrorActionPreference = 'Stop'
+﻿param([switch]$LocalOnly)
+$ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path -Parent $PSScriptRoot
 Push-Location $taskRoot
 try {
@@ -10,6 +11,10 @@ try {
     $commit = (& git @gitArguments rev-parse HEAD).Trim()
     $existingTag = & git @gitArguments tag --list "v$version"
     if ($existingTag) { throw "La versión v$version ya tiene etiqueta. Incrementa la versión antes de publicar otra entrega." }
+    $taskBun = Get-Command bun.exe,bun.cmd -ErrorAction SilentlyContinue | Select-Object -First 1
+    if (-not $taskBun) { throw 'Instala Bun antes de generar la entrega.' }
+    & $taskBun.Source run --cwd site test
+    if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de publicación y descarga.' }
     if (-not $env:APPISTAN_KEYSTORE_PASSWORD) {
         $secure = Get-Content -Raw keystore/password.dpapi | ConvertTo-SecureString
         $pointer = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure)
@@ -30,6 +35,7 @@ try {
     & git @gitArguments tag -a "v$version" -m "AppIstan $version"
     if ($LASTEXITCODE -ne 0) { throw 'No se pudo crear la etiqueta de la entrega.' }
     Write-Output "Entrega lista: $artifact"
+    if (-not $LocalOnly) { & ./scripts/Publish-Release.ps1 -ReleaseDirectory $directory }
 } finally {
     Remove-Item Env:APPISTAN_KEYSTORE_PASSWORD -ErrorAction SilentlyContinue
     Pop-Location

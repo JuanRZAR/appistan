@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Publicación automática desde el proceso de entregas: creación de Release, subida y verificación de APK y metadatos, y actualización de GitHub Pages.
+- Reintento de publicaciones interrumpidas sin recompilar, duplicar Releases ni reemplazar archivos publicados; firma y credenciales conservadas localmente.
 - Configuración de GitHub Pages bajo `/appistan/`, workflow con Bun y descarga directa de la última Release estable.
 - Comprobación de que el alias público del APK coincide con la entrega firmada y creación automática de ese alias en futuras entregas.
 - Migración del sitio de descarga a Astro, Bun y Tailwind CSS 4, con componentes y recursos locales.

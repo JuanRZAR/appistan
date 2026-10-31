@@ -27,7 +27,7 @@ export function latestRelease(releasesRoot: string): string {
   return join(releasesRoot, versions[0]);
 }
 
-export function prepareRelease(releaseDirectory: string, publicDirectory: string, downloadUrl?: string): ReleaseMetadata {
+export function readVerifiedRelease(releaseDirectory: string): { release: ReleaseMetadata; apk: Buffer } {
   const release: ReleaseMetadata = JSON.parse(readFileSync(join(releaseDirectory, 'release.json'), 'utf8').replace(/^\uFEFF/, ''));
   if (!versionPattern.test(release.version) || release.artifact !== `AppIstan-${release.version}.apk`) {
     throw new Error('Nombre de APK o versión inválidos en release.json.');
@@ -39,6 +39,11 @@ export function prepareRelease(releaseDirectory: string, publicDirectory: string
   if (apk.length !== release.sizeBytes || createHash('sha256').update(apk).digest('hex') !== release.sha256) {
     throw new Error('El APK no coincide con el tamaño o SHA-256 de su entrega.');
   }
+  return { release, apk };
+}
+
+export function prepareRelease(releaseDirectory: string, publicDirectory: string, downloadUrl?: string): ReleaseMetadata {
+  const { release, apk } = readVerifiedRelease(releaseDirectory);
   if (downloadUrl) {
     const url = new URL(downloadUrl);
     if (url.protocol !== 'https:' || url.hostname !== 'github.com' || url.username || url.password || url.search || url.hash ||
