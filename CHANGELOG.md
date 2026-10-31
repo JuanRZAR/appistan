@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-31
+
+- Descarga y verificación del lote completo antes de solicitar la primera instalación.
+- Confirmaciones de Android consecutivas, con una sola instalación activa y progreso separado de descargas.
+- Conservación de Play Services del sistema en BlueStacks y otros entornos con traducción x86/ARM para evitar actualizaciones rechazadas por la plataforma.
+- Recuperación del rechazo de Play Services registrado en versiones anteriores y recuerdo de rechazos permanentes hasta que cambie la versión instalada o el sistema.
+- Pruebas de la separación entre descargas e instalaciones, orden, reintentos y tratamiento de Play Services.
+
 ## [0.2.0] - 2026-10-31
 
 - Catálogo depurado: 27 aplicaciones con descargas comprobadas y 23 entradas sin fuente verificable retiradas.

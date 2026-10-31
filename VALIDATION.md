@@ -1,5 +1,13 @@
 # Validación de AppIstan
 
+## Versión 0.3.0
+
+- 26 pruebas unitarias: las 15 anteriores, 6 de preparación del lote y orden de instalación, y 5 del tratamiento de Play Services.
+- La barrera de instalación contempla aplicaciones en espera, consulta, descarga o verificación; también se comprueban reintentos, errores, cancelaciones y una sola instalación activa.
+- BlueStacks: actualización del paquete público conservando las cuatro aplicaciones del lote anterior. El rechazo antiguo de Play Services se recuperó como omisión informativa, manteniendo la versión del sistema.
+- Prueba desde la interfaz con Google Calendar (APK base y tres splits) y Facebook Lite: ambos conjuntos descargados antes de la primera confirmación nativa. Al cancelar Calendar, Android abrió automáticamente la confirmación de Lite. Se cancelaron ambas sin instalar aplicaciones de prueba.
+- La comprobación utiliza Android 9 con traducción x86/ARM. No se ha validado este nuevo flujo en un teléfono físico.
+
 ## Versión 0.2.0
 
 - 15 pruebas unitarias: las 10 comprobaciones anteriores y 5 del catálogo, búsqueda, filtro Comunes, compatibilidad y codificación de la API.

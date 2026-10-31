@@ -20,6 +20,7 @@ class InstallEngine(private val context: AppIstan, val dao: QueueDao, private va
     private val installer = context.packageManager.packageInstaller
     val checks = PackageChecks(context, catalog)
     private val source = ApkSource()
+    private val preferences = context.getSharedPreferences("installer", Context.MODE_PRIVATE)
     private val prompts = ConcurrentHashMap<Int, Intent>()
     private val privateRoot = File(context.filesDir, "packages").apply { mkdirs() }
 
@@ -34,6 +35,11 @@ class InstallEngine(private val context: AppIstan, val dao: QueueDao, private va
 
     suspend fun recover() = lock.withLock {
         dao.items().forEach { row ->
+            if (row.id == catalog.playServices.id && PlayServicesPolicy.previousRejection(row)) {
+                if (row.phase == Phase.FAILED) rememberPlayServicesRejection()
+                complete(row, Phase.SKIPPED, PlayServicesPolicy.managedMessage)
+                return@forEach
+            }
             when (row.phase) {
                 Phase.RESOLVING -> dao.put(row.copy(phase = Phase.QUEUED, message = "Reanudando consulta"))
                 Phase.VERIFYING -> dao.put(row.copy(phase = Phase.DOWNLOADING, message = "Revisando archivos"))
@@ -54,10 +60,8 @@ class InstallEngine(private val context: AppIstan, val dao: QueueDao, private va
                 try { refresh(row) } catch (error: Exception) { fail(row, error) }
             }
             val rows = dao.items()
-            val gms = rows.firstOrNull { it.id == catalog.playServices.id }
-            val available = if (gms != null && !gms.phase.terminal) listOf(gms) else rows
             var slots = 2 - rows.count { it.phase == Phase.DOWNLOADING }
-            for (row in available.filter { it.phase == Phase.QUEUED }) {
+            for (row in rows.filter { it.phase == Phase.QUEUED }) {
                 if (slots <= 0) break
                 try { resolveAndDownload(row); slots-- } catch (error: Exception) { fail(row, error) }
             }
@@ -70,6 +74,13 @@ class InstallEngine(private val context: AppIstan, val dao: QueueDao, private va
         val installed = checks.installed(row.id)
         if (app.id == catalog.playServices.id && installed == null) {
             complete(row, Phase.SKIPPED, "Play Services no está instalado. Puedes continuar; algunas apps pueden necesitarlo.")
+            return
+        }
+        if (app.id == catalog.playServices.id && installed != null && (PlayServicesPolicy.systemManagedRuntime(Build.SUPPORTED_ABIS.toList()) || PlayServicesPolicy.blockedForCurrentSystem(
+                PackageChecks.version(installed), Build.FINGERPRINT,
+                preferences.getLong("gms_blocked_version", -1), preferences.getString("gms_blocked_build", null)
+            ))) {
+            complete(row, Phase.SKIPPED, PlayServicesPolicy.managedMessage)
             return
         }
         require(checks.trusted(row.id).isNotEmpty()) { "No disponible: falta corroborar la firma original del desarrollador" }
@@ -147,14 +158,12 @@ class InstallEngine(private val context: AppIstan, val dao: QueueDao, private va
         val actualRelease = release.copy(versionCode = verified.versionCode, versionName = verified.versionName)
         val current = checks.installed(row.id)?.let(PackageChecks::version)
         if (!ReleasePolicy.needsUpdate(current, verified.versionCode)) complete(row.copy(release = actualRelease.encode()), Phase.SKIPPED, "Ya tienes esta versión o una más reciente")
-        else dao.put(row.copy(phase = Phase.READY, message = "Lista para instalar · ${verified.versionName}", release = actualRelease.encode(), downloaded = received, total = total))
+        else dao.put(row.copy(phase = Phase.READY, message = "Descargada y verificada · ${verified.versionName}", release = actualRelease.encode(), downloaded = received, total = total))
     }
 
     suspend fun installNext(): Boolean = lock.withLock {
         val rows = dao.items()
-        if (rows.any { it.phase in setOf(Phase.INSTALLING, Phase.AWAITING_USER) }) return@withLock false
-        val gms = rows.firstOrNull { it.id == catalog.playServices.id && !it.phase.terminal }
-        val row = (if (gms == null) rows else listOf(gms)).firstOrNull { it.phase == Phase.READY } ?: return@withLock false
+        val row = BatchPolicy.nextInstall(rows) ?: return@withLock false
         var sessionId = -1
         try {
             require(context.packageManager.canRequestPackageInstalls()) { "Activa el permiso para instalar aplicaciones desde AppIstan" }
@@ -195,13 +204,20 @@ class InstallEngine(private val context: AppIstan, val dao: QueueDao, private va
             }
             PackageInstaller.STATUS_SUCCESS -> { complete(row, Phase.SUCCESS, "Instalada correctamente"); prompts.remove(sessionId) }
             else -> {
+                if (row.id == catalog.playServices.id && PlayServicesPolicy.permanentRejection(status)) {
+                    android.util.Log.w("AppIstan", "Play Services del sistema conservado: estado=$status, ${detail.orEmpty().take(180)}")
+                    rememberPlayServicesRejection()
+                    complete(row, Phase.SKIPPED, PlayServicesPolicy.managedMessage)
+                    prompts.remove(sessionId)
+                    return
+                }
                 val message = when (status) {
                     PackageInstaller.STATUS_FAILURE_ABORTED -> "Instalación cancelada en Android"
                     PackageInstaller.STATUS_FAILURE_STORAGE -> "Espacio insuficiente para instalar"
                     PackageInstaller.STATUS_FAILURE_CONFLICT -> "La firma o la versión no permite actualizar la aplicación instalada"
                     PackageInstaller.STATUS_FAILURE_INCOMPATIBLE -> "Esta versión no es compatible con el dispositivo"
                     PackageInstaller.STATUS_FAILURE_BLOCKED -> "Android bloqueó la instalación. Revisa los permisos o restricciones del dispositivo"
-                    PackageInstaller.STATUS_FAILURE_INVALID -> if (row.id == catalog.playServices.id) "Android rechazó esta actualización de Play Services. El resto del lote puede continuar." else "Android rechazó el conjunto de APK para este dispositivo. Prueba más tarde con otra versión."
+                    PackageInstaller.STATUS_FAILURE_INVALID -> "Android rechazó el conjunto de APK para este dispositivo. Prueba más tarde con otra versión."
                     else -> "Android no pudo instalar esta aplicación. Revisa la compatibilidad y vuelve a intentarlo."
                 }
                 android.util.Log.w("AppIstan", "Instalación rechazada: ${row.id}, estado=$status, ${detail.orEmpty().take(180)}")
@@ -212,6 +228,11 @@ class InstallEngine(private val context: AppIstan, val dao: QueueDao, private va
 
     fun takePrompt(sessionId: Int): Intent? = prompts.remove(sessionId)
     fun hasPrompt(sessionId: Int) = prompts.containsKey(sessionId)
+
+    private fun rememberPlayServicesRejection() {
+        val version = checks.installed(catalog.playServices.id)?.let(PackageChecks::version) ?: return
+        preferences.edit().putLong("gms_blocked_version", version).putString("gms_blocked_build", Build.FINGERPRINT).commit()
+    }
 
     suspend fun cancel(id: String) = lock.withLock {
         val row = dao.item(id) ?: return@withLock

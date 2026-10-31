@@ -48,9 +48,11 @@ Una aplicación nueva necesita una huella corroborada; una actualización tambi�
 
 ## Cola y permisos
 
-El primer paso de cada lote revisa y, si hay una versión compatible y verificable, intenta actualizar Google Play Services. Si está ausente o falla, informa del resultado y continúa. Esto no instala el ecosistema Google en dispositivos que no lo incluyen.
+Cada lote comienza revisando Google Play Services. Después descarga y verifica todas las aplicaciones antes de abrir la primera confirmación de instalación. Las instalaciones se presentan una tras otra, en el orden del lote; las entradas omitidas, canceladas o con error no bloquean las demás.
 
-DownloadManager mantiene hasta dos transferencias solicitadas por AppIstan. Room persiste la cola y los identificadores de descarga. Los archivos se copian al almacenamiento interno antes de verificarlos e instalarlos. Hay una sola sesión de instalación activa; las confirmaciones se abren cuando AppIstan está en primer plano. Al cerrar el proceso se recupera el estado desde Room y Android. Si se perdió una confirmación pendiente, Reintentar crea una nueva sesión.
+En entornos con traducción entre x86 y ARM, como BlueStacks, se conserva Play Services del sistema para evitar la actualización que la plataforma rechaza. En otros dispositivos se intenta actualizarlo si hay una versión compatible y verificable. Un rechazo permanente se recuerda para la versión instalada y la compilación del sistema; se puede volver a comprobar cuando alguna cambia. Si Play Services está ausente, el lote continúa sin instalar el ecosistema Google.
+
+DownloadManager mantiene hasta dos transferencias solicitadas por AppIstan. Room persiste la cola y los identificadores de descarga. Los archivos se copian al almacenamiento interno antes de verificarlos y se conservan hasta instalar o cancelar cada aplicación; se necesita espacio para preparar el lote completo. Hay una sola sesión de instalación activa; las confirmaciones se abren cuando AppIstan está en primer plano. Al cerrar el proceso se recupera el estado desde Room y Android. Si se perdió una confirmación pendiente, Reintentar crea una nueva sesión.
 
 Los permisos son Internet, estado de red, instalación desde esta fuente y notificaciones. No necesita root ni iniciar sesión en Google. Android puede exigir confirmaciones o bloquear una instalación por sus propias restricciones. Las apps descargadas pueden necesitar sus propias cuentas o servicios para funcionar.
 

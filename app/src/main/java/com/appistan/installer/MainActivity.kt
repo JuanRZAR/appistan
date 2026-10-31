@@ -118,6 +118,8 @@ class MainActivity : ComponentActivity() {
     val focus = LocalFocusManager.current
     val running = rows.any { !it.phase.terminal }
     val finished = rows.count { it.phase.terminal }
+    val downloading = BatchPolicy.hasPendingDownloads(rows)
+    val prepared = BatchPolicy.preparedCount(rows)
     LaunchedEffect(error) { error?.let { snackbar.showSnackbar(it); model.error.value = null } }
     LaunchedEffect(rows.map { Triple(it.id, it.phase, it.sessionId) }, lifecycleState) {
         if (lifecycleState != Lifecycle.State.RESUMED) return@LaunchedEffect
@@ -179,11 +181,11 @@ class MainActivity : ComponentActivity() {
             }
         } else {
             LazyColumn(Modifier.fillMaxSize().padding(insets), contentPadding = PaddingValues(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                item { Text(if (running) "Vamos paso a paso" else "Lote finalizado", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold) }
+                item { Text(when { !running -> "Lote finalizado"; downloading -> "Descargando el lote"; else -> "Instalando el lote" }, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold) }
                 item { Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                    Text("$finished de ${rows.size} procesadas · ${rows.count { it.phase == Phase.SUCCESS }} instaladas", color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    LinearProgressIndicator(progress = { finished.toFloat() / rows.size }, modifier = Modifier.fillMaxWidth())
-                    Text("Android te pedirá confirmar las instalaciones. Puedes continuar aunque Play Services no se actualice.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(if (downloading) "Descargas: $prepared de ${rows.size} procesadas" else "$finished de ${rows.size} procesadas · ${rows.count { it.phase == Phase.SUCCESS }} instaladas", color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    LinearProgressIndicator(progress = { (if (downloading) prepared else finished).toFloat() / rows.size }, modifier = Modifier.fillMaxWidth())
+                    Text(if (downloading) "Primero se descargan y verifican todas las aplicaciones. Después confirmarás las instalaciones una por una." else "Confirma cada instalación para continuar con la siguiente. Play Services no bloquea las aplicaciones seleccionadas.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 } }
                 items(rows, key = { it.id }) { row -> QueueCard(row, onCancel = { model.cancel(row.id) }, onRetry = { model.retry(row.id) }) }
             }
